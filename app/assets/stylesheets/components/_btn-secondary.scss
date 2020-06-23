@@ -1,0 +1,20 @@
+.btn-secondary {
+  padding: 8px 25px;
+  border-radius: 5px;
+  border: 1px solid $locally-blue;
+  color: $locally-blue;
+  transition: background 0.3s ease;
+  margin: 10px;
+  box-shadow: 1px 1px 1px #eceaed;
+  text-decoration: none;
+  background: none;
+  &:hover {
+  background-color: $locally-blue;
+  opacity: 0.9;
+  color: white;
+  text-decoration: none;
+  box-shadow: 1px 1px 1px #d3cfd5;
+  transition: 0.6s;
+  border: 1px solid $locally-blue;
+  }
+}
