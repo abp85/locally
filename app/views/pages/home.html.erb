@@ -1,6 +1,47 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
-<div class="container align-items-center">
+<div class="home-banner pt-5 px-3 " style="background-image:linear-gradient(rgba(0,0,0,0.15), rgba(0,0,0,0.15)), url('https://mediafiles.urlaubsguru.de/wp-content/uploads/2019/04/Beach-CleanUp-shutterstock_1453369973.jpg')">
+  <h1>Create. Read. Update. Delete.</h1>
+  <h3>Find me in app/views/pages/home.html.erb</h3>
+</div>
 
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+  </ol>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <div class="home-card">
+        <%= image_tag("speaker.png") %>
+        <div>
+          <h5>Report a problem</h5>
+        </div>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <div class="home-card">
+        <%= image_tag("good.png") %>
+        <div>
+          <h5>Upvote & priotitize reports</h5>
+        </div>
+      </div>
+    </div>
+    <div class="carousel-item">
+       <div class="home-card">
+        <%= image_tag("share.png") %>
+        <div>
+          <h5>Share issues with your community</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" ></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
 </div>
 
