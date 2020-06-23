@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_23_102147) do
+ActiveRecord::Schema.define(version: 2020_06_23_134224) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,14 +36,24 @@ ActiveRecord::Schema.define(version: 2020_06_23_102147) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "reports", force: :cascade do |t|
     t.string "location"
     t.string "description"
     t.float "latitude"
     t.float "longitud"
     t.bigint "user_id", null: false
+    t.bigint "category_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "title"
+    t.integer "status", default: 0, null: false
+    t.index ["category_id"], name: "index_reports_on_category_id"
     t.index ["user_id"], name: "index_reports_on_user_id"
   end
 
