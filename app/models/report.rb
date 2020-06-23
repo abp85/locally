@@ -12,10 +12,8 @@ class Report < ApplicationRecord
   # after_validation :geocode, if: :will_save_change_to_location?
 
   def total_votes
-    votes = Vote.all
-    report_votes = votes.keep_if { |vote| vote.report_id == self.id }
     votes_count = 0
-    report_votes.each do |vote|
+    votes.each do |vote|
       if vote.value == "up"
         votes_count += 1
       elsif vote.value == "down"
@@ -24,5 +22,4 @@ class Report < ApplicationRecord
       return votes_count
     end
   end
-
 end
