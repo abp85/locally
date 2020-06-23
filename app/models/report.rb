@@ -7,6 +7,7 @@ class Report < ApplicationRecord
   validates :title, :description, :location, presence: true
   validates :title, length: { maximun: 30 }
 
+  enum status: [:pending, :resolved, :rejected]
   # geocoded_by :location
   # after_validation :geocode, if: :will_save_change_to_location?
 end
