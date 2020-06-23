@@ -5,4 +5,4 @@ const initBottomLabel = () => {
 
 
 }
-  export { initLabel };
+  export { initBottomLabel }
