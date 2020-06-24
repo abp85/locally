@@ -1,6 +1,8 @@
 <div class="home-banner pt-5 px-3 " style="background-image:linear-gradient(rgba(0,0,0,0.15), rgba(0,0,0,0.15)), url('https://mediafiles.urlaubsguru.de/wp-content/uploads/2019/04/Beach-CleanUp-shutterstock_1453369973.jpg')">
   <h1>Create. Read. Update. Delete.</h1>
   <h3>Find me in app/views/pages/home.html.erb</h3>
+  <%= link_to "Report", new_report_path, class: "btn btn-primary" %>
+  <%= link_to "Index", reports_path, class: "btn btn-secondary"  %>
 </div>
 
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">

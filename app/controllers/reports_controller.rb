@@ -21,15 +21,18 @@ class ReportsController < ApplicationController
 
   def edit
     @report = Report.find(params[:id])
+    authorize @report
   end
 
   def show
     @report = Report.find(params[:id])
+    authorize @report
   end
 
   def update
     @report = Report.find(params[:id])
     @user = current_user.id
+    authorize @report
     if @report.update(report_params)
       redirect_to reports_path
     else
