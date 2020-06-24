@@ -24,30 +24,30 @@ end
 
 p "Creating Categories..."
 
-Category.create(name: "Electricity")
-Category.create(name: "Woodwork")
-Category.create(name: "Roadwork")
-Category.create(name: "Concrete")
-Category.create(name: "Water")
-Category.create(name: "Phone Lines")
+catValue = ["Electricity", "Woodwork", "Roadwork", "Concrete", "Water", "Phone-Lines"]
+catValPos = 0
+6.times do
+  Category.create(name: "#{catValue[catValPos]}")
+  catValPos += 1
+end
 
 p "Creating Reports..."
 
+repNum = 1
+loc = ["Carrer De Taxdirt 12, Barcelona", "Carrer de Roc Boronat 53, Barcelona", "Carrer De Viladomat 81, Barcelona", "Carrer Dels Corders 25, Barcelona", "Carrer de Llull 170, Barcelona", "Carrer de la Ciutat de Granada 44, Barcelona", "Carrer de Bac de Roda 144, Barcelona", "Carrer d'en Grassot 101, Barcelona", "Carrer de Rabassa 32, Barcelona", "Carrer de Lincoln 67, Barcelona"]
 10.times do
-  repNum = 1
-  loc = ["Carrer De Taxdirt 12, Barcelona", "Carrer de Roc Boronat 53, Barcelona", "Carrer De Viladomat 81, Barcelona", "Carrer Dels Corders 25, Barcelona", "Carrer de Llull 170, Barcelona", "Carrer de la Ciutat de Granada 44, Barcelona", "Carrer de Bac de Roda 144, Barcelona", "Carrer d'en Grassot 101, Barcelona", "Carrer de Rabassa 32, Barcelona", "Carrer de Lincoln 67, Barcelona"]
   puts repNum
   repTitle = Faker::Marketing.buzzwords
   file = URI.open('https://as2.ftcdn.net/jpg/01/91/15/43/500_F_191154311_XIISKDd8SUxXEE1rudvgxYU3uNTETJXq.jpg')
-  report = Report.create!(title: repTitle, description: '-', location: "#{loc[repNum - 1]}", user_id: rand(1..30), category_id: rand(1..6))
-  tool.photo.attach(io: file, filename: "#{repTitle.gsub(/\s+/, '_')}.jpg", content_type: 'image/jpg')
+  report = Report.create!(title: repTitle.truncate(30), description: '-', location: "#{loc[repNum - 1]}", user_id: rand(1..30), category_id: rand(1..6))
+  report.photo.attach(io: file, filename: "#{repTitle.gsub(/\s+/, '_')}.jpg", content_type: 'image/jpg')
   repNum += 1
 end
 
 p "Creating Votes..."
 
+voteValue = ["up", "center", "down"]
 150.times do
-  voteValue = ["up", "center", "down"]
   Vote.create(value: "#{voteValue[rand(0..2)]}", user_id: rand(1..30), report_id: rand(1..10))
 end
 
