@@ -1,11 +1,19 @@
 class ReportsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show]
+
+  def index
+    @reports = policy_scope(Report)
+  end
+
   def new
     @report = Report.new
+    authorize @report
   end
 
   def create
     @report = Report.new(report_params)
     @report.user_id = current_user.id
+    authorize @report
     if @report.save
       redirect_to reports_path
     else
@@ -15,11 +23,18 @@ class ReportsController < ApplicationController
 
   def edit
     @report = Report.find(params[:id])
+    authorize @report
+  end
+
+  def show
+    @report = Report.find(params[:id])
+    authorize @report
   end
 
   def update
     @report = Report.find(params[:id])
     @user = current_user.id
+    authorize @report
     if @report.update(report_params)
       redirect_to reports_path
     else

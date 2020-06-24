@@ -1,0 +1,14 @@
+<h1>Report details</h1>
+
+<% if @report.photo.attached? %>
+  <%= cl_image_tag @report.photo.key, height: 150, width: 250%>
+<% else %>
+  <p>No photo</p>
+<% end %>
+<p><%= @report.title %></p>
+<p><%= @report.location %></p>
+<p><%= @report.category.name %></p>
+<p><%= @report.total_votes %></p>
+<p><%= @report.description %></p>
+
+<%= link_to "Back", reports_path, class: "btn btn-secondary"  %>
