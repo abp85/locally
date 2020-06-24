@@ -2,6 +2,10 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
   resources :reports, except: [:delete] do
+    member do
+      get :upvote
+      get :downvote
+    end
     resources :votes, only: [ :create, :update]
   end
 
