@@ -1,9 +1,10 @@
 <h1>Reports</h1>
 
+<%= link_to "Home", root_path, class: "btn btn-secondary" %>
+
 <% @reports.each do |report| %>
   <p><%= report.title %> <%= link_to "Details", report_path(report) %></p>
   <p><%= report.location %></p>
   <p><%= report.category.name %></p>
 <% end %>
 
-<%= link_to "Home", root_path, class: "btn btn-secondary" %>
