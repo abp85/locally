@@ -5,9 +5,21 @@ class Report < ApplicationRecord
   has_one_attached :photo
 
   validates :title, :description, :location, presence: true
-  validates :title, length: { maximun: 30 }
+  validates :title, length: { maximum: 30 }
 
   enum status: [:pending, :resolved, :rejected]
   # geocoded_by :location
   # after_validation :geocode, if: :will_save_change_to_location?
+
+  def total_votes
+    votes_count = 0
+    votes.each do |vote|
+      if vote.value == "up"
+        votes_count += 1
+      elsif vote.value == "down"
+        votes_count -= 1
+      end
+      return votes_count
+    end
+  end
 end

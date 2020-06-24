@@ -1,10 +1,70 @@
 .bottom-navbar {
   background-color: $locally-blue;
-  i, span {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: relative;
+  width: 100%;
+
+
+  .bottom-navbar-icon, a {
     color: $locally-white;
+    font-size: 20px;
   }
 
-  span {
+  a {
+    padding-top: 12px;
     font-size: 12px;
+    text-align: center;
   }
 }
+
+.big-plus-button {
+  font-size: 60px;
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  transform: translate(-30%, 0);
+  border: 1px solid $locally-blue;
+  background-color: $locally-blue;
+  border-radius: 50%;
+}
+
+
+
+/* SECOND OPTION */
+
+.bottom-navbar2 {
+  background-color: $locally-blue;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: relative;
+  width: 100%;
+
+
+  .bottom-navbar-icon, a {
+    color: $locally-white;
+    font-size: 19px;
+  }
+
+  a {
+    padding-top: 12px;
+    font-size: 12px;
+    text-align: center;
+  }
+}
+
+.big-plus-button {
+  font-size: 60px;
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  transform: translate(-30%, 0);
+  border: 1px solid $locally-blue;
+  background-color: $locally-blue;
+  border-radius: 50%;
+}
+
+
+
