@@ -1,6 +1,11 @@
 <div class="bottom-navbar">
-  <a href="/"><i class="fas fa-bookmark"></i></a>
-  <a href=""><i class="fas fa-plus-circle big-plus-button"></i></a>
-  <a href=""><i class="far fa-user-circle"></i></a>
+  <%= link_to reports_path do %>
+    <i class="fas fa-bookmark"></i>
+  <% end %>
+  <%= link_to new_report_path do %>
+    <i class="fas fa-plus-circle big-plus-button"></i>
+  <% end %>
+  <%= link_to new_user_session_path do %>
+    <i class="far fa-user-circle"></i>
+  <% end %>
 </div>
-

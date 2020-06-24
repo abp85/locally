@@ -1,0 +1,15 @@
+.tab {
+  display:flex;
+  justify-content: space-around;
+  padding: 20px;
+
+  a {
+    font-size: 21px;
+    font-weight: 700;
+    color: #000;
+  }
+
+  .active-tab {
+    border-bottom: 2px solid $locally-green;
+  }
+}
