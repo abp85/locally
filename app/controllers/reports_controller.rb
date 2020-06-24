@@ -1,11 +1,17 @@
 class ReportsController < ApplicationController
+  def index
+    @reports = policy_scope(Report)
+  end
+
   def new
     @report = Report.new
+    authorize @report
   end
 
   def create
     @report = Report.new(report_params)
     @report.user_id = current_user.id
+    authorize @report
     if @report.save
       redirect_to reports_path
     else
@@ -14,6 +20,10 @@ class ReportsController < ApplicationController
   end
 
   def edit
+    @report = Report.find(params[:id])
+  end
+
+  def show
     @report = Report.find(params[:id])
   end
 
