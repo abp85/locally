@@ -1,25 +1,19 @@
 .home-banner {
   background-size: cover;
-  height:280px;
+  height:450px;
   box-shadow: 0 0 15px rgba(0,0,0,0.3);
 
   h1 {
-    text-shadow: 1px 2px 2px rgba(0,0,0,0.2);
-    color:white;
+    color: black;
     font-size: 1.8em;
+    font-weight: 450;
   }
 
   h3 {
-    color: white;
+    color: black;
     font-weight: light;
     opacity: 0.9;
     font-size: 1.1em;
-    font-weight: 400;
-  }
-
-  p {
-  font-weight: 700;
-  color: rgba(0,0,0,0.8);
-  text-shadow: 1px 1px 1px rgba(0,0,0,0.2);
+    font-weight: 350;
   }
 }

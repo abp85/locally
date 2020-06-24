@@ -1,109 +1,97 @@
-<div class="home-banner pt-5 px-3 " style="background-image:linear-gradient(rgba(0,0,0,0.15), rgba(0,0,0,0.15)), url('https://mediafiles.urlaubsguru.de/wp-content/uploads/2019/04/Beach-CleanUp-shutterstock_1453369973.jpg')">
-  <h1>Create. Read. Update. Delete.</h1>
-  <h3>Find me in app/views/pages/home.html.erb</h3>
+<div class="home-banner pt-5 px-3 " style="background-image: url('https://image.freepik.com/free-vector/park-with-different-people-flat-cartoon-vector-illustration-man-moving-scooter-boy-riding-bicycle-girl-walking-with-dog_81534-1530.jpg')">
+  <div class="container">
+    <h1>Because we deserve a better community</h1>
+    <h3>The simplest way to report local issues to authorities</h3>
+  </div>
 </div>
 
-<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-  <ol class="carousel-indicators">
-    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-  </ol>
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <div class="home-card">
-        <%= image_tag("speaker.png") %>
+<div class="d-flex justify-content-start">
+  <%= link_to 'Report an issue', reports_path, :class => "btn-home btn-primary" %>
+  <%= link_to 'Browse', reports_path, :class => "btn-home btn-secondary" %>
+</div>
+
+<div class="container">
+    <div class="report-header argument-header">
+      <h2>report</h2>
+      <p>report your issue to local authorities and create awareness in your community</p>
+      <%= image_tag("report.svg") %>
+    </div>
+
+    <div class="upvote-header argument-header">
+      <h2>upvote</h2>
+      <p>browse trhough reports from your community and vote for the most pressing matters</p>
+      <%= image_tag("upvote.svg") %>
+    </div>
+
+    <div class="share-header argument-header">
+      <h2>share</h2>
+      <p>share the reports with your friends & create a better community</p>
+      <%= image_tag("share.svg") %>
+    </div>
+
+
+  <div class="report-card">
+    <img src="https://www.mybins.com.au/uploads/2/5/6/8/25680378/published/broken-wheeli-bin.jpg?1518481761">
+    <div class="report-card-info">
+      <div class="report-text">
         <div>
-          <h5>Report a problem</h5>
+          <h2>Card bin crashed</h2>
+          <p><i class="fas fa-map-marker-alt mr-2"></i>Barcelona</p>
+          <a href="#" class="pill-category">Category</a>
         </div>
       </div>
+      <div class="upvotes-buttons mr-3">
+        <a href="#"><i class="fas fa-chevron-up upvote-arrow"></i></a>
+
+        <span class="line-height">413</span>
+        <a href="#"><i class="fas fa-chevron-down downvote-arrow"></i></a>
+      </div>
     </div>
-    <div class="carousel-item">
-      <div class="home-card">
-        <%= image_tag("good.png") %>
+  </div>
+
+  <div class="report-card">
+    <img src="https://www.mybins.com.au/uploads/2/5/6/8/25680378/published/broken-wheeli-bin.jpg?1518481761">
+    <div class="report-card-info">
+      <div class="report-text">
         <div>
-          <h5>Upvote & priotitize reports</h5>
+          <h2>Card bin crashed</h2>
+          <p><i class="fas fa-map-marker-alt mr-2"></i>Barcelona</p>
+        </div>
+        <div>
+          <a href="#" class="pill-category">Category</a>
         </div>
       </div>
+      <div class="upvotes-buttons mr-3">
+        <a href="#"><i class="fas fa-chevron-up upvote-arrow"></i></a>
+
+        <span class="line-height">413</span>
+        <a href="#"><i class="fas fa-chevron-down downvote-arrow"></i></a>
+      </div>
     </div>
-    <div class="carousel-item">
-       <div class="home-card">
-        <%= image_tag("share.png") %>
+  </div>
+
+  <div class="report-card">
+    <img src="https://www.mybins.com.au/uploads/2/5/6/8/25680378/published/broken-wheeli-bin.jpg?1518481761">
+    <div class="report-card-info">
+      <div class="report-text">
         <div>
-          <h5>Share issues with your community</h5>
+          <h2>Card bin crashed</h2>
+          <p><i class="fas fa-map-marker-alt mr-2"></i>Barcelona</p>
+        </div>
+        <div>
+          <a href="#" class="pill-category">Category</a>
         </div>
       </div>
+      <div class="upvotes-buttons mr-3">
+        <a href="#"><i class="fas fa-chevron-up upvote-arrow"></i></a>
+
+        <span class="line-height">413</span>
+        <a href="#"><i class="fas fa-chevron-down downvote-arrow"></i></a>
+      </div>
     </div>
   </div>
-  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" ></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
+
+<%= image_tag("https://forums.macrumors.com/attachments/upload_2018-7-19_18-55-17-jpeg.771616/", class: "img-map") %>
+
 </div>
 
-<div class="report-card">
-  <img src="https://www.mybins.com.au/uploads/2/5/6/8/25680378/published/broken-wheeli-bin.jpg?1518481761">
-  <div class="ml-3 report-card-info">
-    <div class="report-text">
-      <div>
-        <h2>Card bin crashed</h2>
-        <p><i class="fas fa-map-marker-alt mr-2"></i>Barcelona</p>
-      </div>
-      <div>
-        <a href="#" class="badge badge-pill border badge-light">Category</a>
-      </div>
-    </div>
-    <div class="upvotes-buttons mr-3">
-      <a href="#"><i class="fas fa-chevron-up upvote-arrow"></i></a>
-
-      <span class="line-height">413</span>
-      <a href="#"><i class="fas fa-chevron-down downvote-arrow"></i></a>
-    </div>
-  </div>
-</div>
-
-<div class="report-card">
-  <img src="https://www.mybins.com.au/uploads/2/5/6/8/25680378/published/broken-wheeli-bin.jpg?1518481761">
-  <div class="ml-3 report-card-info">
-    <div class="report-text">
-      <div>
-        <h2>Card bin crashed</h2>
-        <p><i class="fas fa-map-marker-alt mr-2"></i>Barcelona</p>
-      </div>
-      <div>
-        <a href="#" class="badge badge-pill border badge-light">Category</a>
-      </div>
-    </div>
-    <div class="upvotes-buttons mr-3">
-      <a href="#"><i class="fas fa-chevron-up upvote-arrow"></i></a>
-
-      <span class="line-height">413</span>
-      <a href="#"><i class="fas fa-chevron-down downvote-arrow"></i></a>
-    </div>
-  </div>
-</div>
-
-<div class="report-card">
-  <img src="https://www.mybins.com.au/uploads/2/5/6/8/25680378/published/broken-wheeli-bin.jpg?1518481761">
-  <div class="ml-3 report-card-info">
-    <div class="report-text">
-      <div>
-        <h2>Card bin crashed</h2>
-        <p><i class="fas fa-map-marker-alt mr-2"></i>Barcelona</p>
-      </div>
-      <div>
-        <a href="#" class="badge badge-pill border badge-light">Category</a>
-      </div>
-    </div>
-    <div class="upvotes-buttons mr-3">
-      <a href="#"><i class="fas fa-chevron-up upvote-arrow"></i></a>
-
-      <span class="line-height">413</span>
-      <a href="#"><i class="fas fa-chevron-down downvote-arrow"></i></a>
-    </div>
-  </div>
-</div>

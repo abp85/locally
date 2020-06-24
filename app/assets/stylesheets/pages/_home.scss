@@ -1,1 +1,37 @@
-// Specific CSS for your home-page
+.argument-header {
+  margin-top: 50px;
+  text-align: center;
+
+  h2 {
+  border-bottom: 4px solid $locally-red;
+  font-weight: 450;
+  margin: 0 auto;
+  width: 100px;
+  }
+  p {
+    padding-top: 15px;
+  }
+  img {
+  height: 130px;
+  width: 100%;
+  object-fit: contain;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  }
+}
+
+.btn-home {
+  display: block;
+  width: fit-content;
+  margin-top: 15px;
+  margin-left: 15px;
+}
+
+.img-map {
+  margin-top: 20px;
+  height: 350px;
+  width: 100%;
+  object-fit: contain;
+}
+
+
