@@ -41,32 +41,34 @@ class ReportsController < ApplicationController
   end
 
   def upvote
+    @vote = Vote.find_or_create_by(user: current_user, report: @report)
     authorize @vote
-    if @vote
-      if @vote.value == "up"
-        @vote.value = "center"
-      else
-        @vote.value = "up"
-      end
-      @vote.save
+    # if @vote
+    if @vote.value == "up"
+      @vote.value = "center"
     else
-      Vote.create(value: "up", user: current_user, report: @report)
+      @vote.value = "up"
     end
+    @vote.save
+    # else
+      # Vote.create(value: "up", user: current_user, report: @report)
+    # end
     redirect_to report_path(@report)
   end
 
   def downvote
+    @vote = Vote.find_or_create_by(user: current_user, report: @report)
     authorize @vote
-    if @vote
-      if @vote.value == "down"
-        @vote.value = "center"
-      else
-        @vote.value = "down"
-      end
-      @vote.save
+    # if @vote
+    if @vote.value == "down"
+      @vote.value = "center"
     else
-      Vote.create(value: "down", user: current_user, report: @report)
+      @vote.value = "down"
     end
+      @vote.save
+    # else
+    #   Vote.create(value: "down", user: current_user, report: @report)
+    # end
     redirect_to report_path(@report)
   end
 
@@ -74,7 +76,6 @@ class ReportsController < ApplicationController
 
   def set_report
   @report = Report.find(params[:id])
-  @vote = Vote.find_by(user: current_user, report: @report)
   end
 
   def report_params
