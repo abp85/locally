@@ -10,7 +10,7 @@
 
 
   .bottom-navbar-icon, a {
-    font-size: 23px;
+    font-size: 25px;
     color: $locally-blue;
     text-shadow: 1px 1px 5px rgba(91, 114, 251, 0.5);
     }
@@ -28,29 +28,6 @@
  color: $locally-green;
 }
 
-
-
-/* --- 2 option - blue bg ---
-
-.bottom-navbar2 {
-  background-color: $locally-blue;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  padding: 10px 0;
-  box-shadow: 1px 2px 15px rgba(0,0,0,0.5);
-
-  .bottom-navbar-icon, a {
-    color: $locally-white;
-    font-size: 25px;
-  }
+.fa-bookmark {
+  font-size: 23px;
 }
-
-.big-plus-button2 {
-  font-size: 30px;
-  border: 1px solid $locally-blue;
-  background-color: $locally-blue;
-  border-radius: 50%;
-}
-
-*/
