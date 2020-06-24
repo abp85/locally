@@ -1,6 +1,7 @@
 .report-card {
+  margin: 7px;
   overflow: hidden;
-  height: 120px;
+  height: 100px;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
@@ -16,26 +17,25 @@
 
   h2 {
     font-size: 16px;
-    font-weight: bold;
+    font-weight: 450px;
     margin: 0;
-    color: $locally-blue;
+    color: black;
   }
   p {
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.4;
   opacity: .7;
   margin-bottom: 0;
   margin-top: 8px;
+  margin-bottom: 3px;
   }
-
 }
 
 .upvotes-buttons {
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 
   .upvote-arrow {
   color: $locally-green;
@@ -45,7 +45,6 @@
   color: $locally-red;
   }
 }
-
 
 .report-text {
   display: flex;
