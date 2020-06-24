@@ -13,13 +13,18 @@ class Report < ApplicationRecord
 
   def total_votes
     votes_count = 0
-    votes.each do |vote|
-      if vote.value == "up"
-        votes_count += 1
-      elsif vote.value == "down"
-        votes_count -= 1
-      end
+    if votes.empty?
       return votes_count
+    else
+      votes.each do |vote|
+        if vote.value == "up"
+          votes_count += 1
+        elsif vote.value == "down"
+          votes_count -= 1
+        end
+      end
     end
+
+    return votes_count
   end
 end
