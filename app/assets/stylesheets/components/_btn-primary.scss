@@ -4,10 +4,11 @@
   border-radius: 5px;
   background: $locally-blue;
   transition: background 0.3s ease;
-  border: none;
+  border: 1px solid $locally-blue;
   &:hover {
   background: #4358D3;
   color: white;
   text-decoration: none;
+  border: 1px solid #4358D3;
   }
 }
