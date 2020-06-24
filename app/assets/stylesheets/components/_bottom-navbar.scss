@@ -1,70 +1,33 @@
+
 .bottom-navbar {
-  background-color: $locally-blue;
+  background-color: $locally-white;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  position: relative;
-  width: 100%;
+  padding: 7px 0;
+  border-top: 1px solid #A1A1A1;
+
 
 
   .bottom-navbar-icon, a {
-    color: $locally-white;
-    font-size: 20px;
-  }
-
-  a {
-    padding-top: 12px;
-    font-size: 12px;
-    text-align: center;
-  }
+    font-size: 25px;
+    color: $locally-blue;
+    text-shadow: 1px 1px 5px rgba(91, 114, 251, 0.5);
+    }
 }
 
 .big-plus-button {
-  font-size: 60px;
-  position: absolute;
-  bottom: 50px;
-  left: 50%;
-  transform: translate(-30%, 0);
-  border: 1px solid $locally-blue;
-  background-color: $locally-blue;
+  font-size: 40px;
+  border: 1px solid $locally-white;
+  background-color: $locally-white;
   border-radius: 50%;
 }
 
-
-
-/* SECOND OPTION */
-
-.bottom-navbar2 {
-  background-color: $locally-blue;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  position: relative;
-  width: 100%;
-
-
-  .bottom-navbar-icon, a {
-    color: $locally-white;
-    font-size: 19px;
-  }
-
-  a {
-    padding-top: 12px;
-    font-size: 12px;
-    text-align: center;
-  }
+.active {
+ text-shadow: none;
+ color: $locally-green;
 }
 
-.big-plus-button {
-  font-size: 60px;
-  position: absolute;
-  bottom: 50px;
-  left: 50%;
-  transform: translate(-30%, 0);
-  border: 1px solid $locally-blue;
-  background-color: $locally-blue;
-  border-radius: 50%;
+.fa-bookmark {
+  font-size: 23px;
 }
-
-
-
