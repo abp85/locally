@@ -1,11 +1,11 @@
 class ReportsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
-  before_action :set_report, only: [:show, :edit,:update, :upvote, :downvote]
+  before_action :set_report, only: [:show, :edit, :update, :upvote, :downvote]
 
   def index
     @reports = policy_scope(Report)
     if params[:latitude]
-      @reports = Report.near([params[:latitude], params[:longitude]], 2)
+      @reports = Report.near([params[:latitude], params[:longitude]], 5)
     else
       @reports = Report.geocoded
     end
@@ -57,39 +57,37 @@ class ReportsController < ApplicationController
   def upvote
     @vote = Vote.find_or_create_by(user: current_user, report: @report)
     authorize @vote
-    # if @vote
+
     if @vote.value == "up"
       @vote.value = "center"
     else
       @vote.value = "up"
     end
+
     @vote.save
-    # else
-      # Vote.create(value: "up", user: current_user, report: @report)
-    # end
+
     redirect_to report_path(@report)
   end
 
   def downvote
     @vote = Vote.find_or_create_by(user: current_user, report: @report)
     authorize @vote
-    # if @vote
+
     if @vote.value == "down"
       @vote.value = "center"
     else
       @vote.value = "down"
     end
-      @vote.save
-    # else
-    #   Vote.create(value: "down", user: current_user, report: @report)
-    # end
+
+    @vote.save
+
     redirect_to report_path(@report)
   end
 
   private
 
   def set_report
-  @report = Report.find(params[:id])
+    @report = Report.find(params[:id])
   end
 
   def report_params
