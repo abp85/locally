@@ -48,7 +48,7 @@ p "Creating Votes..."
 
 voteValue = ["up", "center", "down"]
 150.times do
-  Vote.create(value: "#{voteValue[rand(0..2)]}", user_id: rand(1..30), report_id: rand(1..10))
+  Vote.create(value: "#{voteValue[rand(0..2)]}", user: User.all.sample, report: Report.all.sample)
 end
 
 p "Process completed"

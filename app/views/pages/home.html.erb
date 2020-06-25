@@ -1,12 +1,11 @@
 <div class="landing-header">
-      <h1>Because we deserve a better community.</h1>
-      <h3>The simplest way to report your issues to local authorities</h3>
-    </div>
+  <h1>Because we deserve a better community.</h1>
+  <h3>The simplest way to report your issues to local authorities</h3>
+</div>
   <div class="home-banner pt-5 px-3 " style="background-image: url('https://i.pinimg.com/originals/99/9b/71/999b711bda14eea62712bb04d29f2a9c.jpg')">
       <%= link_to 'Report an issue', new_report_path, :class => "btn-home-primary btn-primary" %>
   </div>
 
-  <div class="container">
     <div class="browse">
       <h6>You can also see existing reports:</h6>
       <%= link_to 'Browse', reports_path, :class => "btn-home-secondary btn-secondary" %>
@@ -34,32 +33,30 @@
 
   <div class="cards">
     <% @reports.take(4).each do |report|  %>
-    <%= link_to report_path(report) do %>
-    <div class="report-card">
-     <% if report.photo.attached? %>
-      <%= cl_image_tag report.photo.key  %>
-     <% else %>
-      <img src="https://www.rd.com/wp-content/uploads/2019/04/mai-khao-beach-phuket-thailand-june-222018-dirty-beach-along-the-shoreline.jpg">
-     <% end %>
-     <div class="report-card-info">
-       <div class="report-text">
-        <div>
-          <h2><%= report.title%></h2>
-          <p><i class="fas fa-map-marker-alt mr-2"></i><%= report.location%></p>
-          <a href="#" class="pill-category">Category</a>
+      <%= link_to report_path(report) do %>
+        <div class="home-card">
+         <% if report.photo.attached? %>
+          <%= cl_image_tag report.photo.key  %>
+         <% else %>
+          <img src="https://www.rd.com/wp-content/uploads/2019/04/mai-khao-beach-phuket-thailand-june-222018-dirty-beach-along-the-shoreline.jpg">
+         <% end %>
+         <div class="home-card-info">
+           <div class="home-text">
+            <div>
+              <h2><%= report.title%></h2>
+              <p><i class="fas fa-map-marker-alt mr-2"></i><%= report.location.split(",").first%></p>
+              <a href="#" class="pill-category"><%= report.category.name %></a>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-      <div class="upvotes-buttons mr-3">
-        <a href="#"><i class="fas fa-chevron-up upvote-arrow"></i></a>
-
-        <span class="line-height">413</span>
-        <a href="#"><i class="fas fa-chevron-down downvote-arrow"></i></a>
-      </div>
-    </div>
-  <% end %>
-  <% end %>
-</div>
+          <div class="upvotes-info mr-3">
+            <span class="line-height">413</span>
+            <p>votes</p>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
 
 
 
@@ -99,7 +96,6 @@
         </div>
         <div class="upvotes-buttons mr-3">
           <a href="#"><i class="fas fa-chevron-up upvote-arrow"></i></a>
-
           <span class="line-height">413</span>
           <a href="#"><i class="fas fa-chevron-down downvote-arrow"></i></a>
         </div>
@@ -127,10 +123,6 @@
       </div>
     </div>
     <%= image_tag("https://forums.macrumors.com/attachments/upload_2018-7-19_18-55-17-jpeg.771616/", class: "img-map") %>
-  </div>
-<<<<<<< HEAD
 
 
-=======
->>>>>>> master
 
