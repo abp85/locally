@@ -1,0 +1,43 @@
+.report-tab {
+  display:flex;
+  justify-content: space-around;
+  padding: 20px;
+
+  a {
+    font-size: 21px;
+    font-weight: 700;
+    color: #000;
+  }
+
+  .active {
+    border-bottom: 3.1px solid $locally-blue;
+  }
+
+  p {
+    color: #000;
+  }
+}
+
+.tabs {
+  position: relative;
+
+  clear: both;
+  margin: 25px 0;
+}
+
+.content {
+  position: absolute;
+  top: 28px;
+  left: 0;
+  background: white;
+  right: 0;
+  bottom: 0;
+  padding: 20px;
+  border: 1px solid #ccc;
+  overflow: hidden;
+}
+.content > * {
+  opacity: 0;
+  transform: translateX(-100%);
+  transition: all 0.6s ease;
+}
