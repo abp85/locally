@@ -7,8 +7,6 @@
   padding: 7px 0;
   border-top: 1px solid #A1A1A1;
 
-
-
   .bottom-navbar-icon, a {
     font-size: 25px;
     color: $locally-blue;
@@ -17,16 +15,21 @@
 
 .big-plus-button {
   font-size: 40px;
-  border: 1px solid $locally-white;
-  background-color: $locally-white;
   border-radius: 50%;
 }
 
-.active {
- text-shadow: none;
- color: $locally-green;
-}
 
 .fa-bookmark {
   font-size: 23px;
+}
+
+.bottom-navbar-active {
+
+}
+
+
+.bookmark-icon {
+  background-image: url(../../images/navbar-icons/bookmark-outline.svg);
+  fill: $locally-blue;
+  background-color: $locally-blue;
 }
