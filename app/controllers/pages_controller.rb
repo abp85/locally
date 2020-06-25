@@ -4,4 +4,8 @@ class PagesController < ApplicationController
   def home
     @reports = policy_scope(Report)
   end
+
+  def profile
+  end
+
 end

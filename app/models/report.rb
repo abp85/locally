@@ -8,8 +8,9 @@ class Report < ApplicationRecord
   validates :title, length: { maximum: 30 }
 
   enum status: [:pending, :resolved, :rejected]
-  # geocoded_by :location
-  # after_validation :geocode, if: :will_save_change_to_location?
+
+  geocoded_by :location
+  after_validation :geocode, if: :will_save_change_to_location?
 
   def total_votes
     votes_count = 0
