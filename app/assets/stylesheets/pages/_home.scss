@@ -1,15 +1,42 @@
+.home-banner {
+  background-size: contain;
+  height: 400px;
+}
+
+.landing-header {
+  h1 {
+    color: black;
+    font-size: 1.8em;
+    font-weight: 450;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 25px;
+  }
+
+  h3 {
+    color: black;
+    opacity: 0.8;
+    font-size: 1.1em;
+    font-weight: 350;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-bottom: 5px;
+  }
+}
+
 .argument-header {
   margin-top: 50px;
   text-align: center;
 
   h2 {
-  border-bottom: 4px solid $locally-red;
+  border-bottom: 4px solid #DE4C78;
   font-weight: 450;
   margin: 0 auto;
   width: 100px;
   }
   p {
     padding-top: 15px;
+    font-weight: 300;
   }
   img {
   height: 130px;
@@ -30,7 +57,7 @@
 .btn-home-primary {
   display: block;
   width: fit-content;
-  margin: 200px auto;
+  margin: 210px auto;
 }
 
 .img-map {
@@ -42,9 +69,9 @@
 
 .browse {
   h6 {
-  padding-top: 35px;
+  padding-top: 15px;
   padding-bottom: 5px;
-  font-weight: 200;
+  font-weight: 300;
   text-align: center;
   font-size: 18px;
   }
@@ -57,7 +84,10 @@
 }
 
 h4 {
-  padding-bottom: 8px;
-  padding-top: 25px;
-  font-weight: 400;
+  padding-bottom: 7px;
+  padding-top: 35px;
+  font-weight: 300;
+  font-size: 22px;
 }
+
+
