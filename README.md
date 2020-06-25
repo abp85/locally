@@ -8,7 +8,7 @@ Local.ly is a platform that allows citizens to upload posts of matters that affe
 
 * Make the most important matters visible with an upvote/downvote system
 
-* Trace which part of your community needs the most of the 
+* Trace which part of your community needs most of the attention.
 
 
 
