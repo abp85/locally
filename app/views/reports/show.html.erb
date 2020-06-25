@@ -1,23 +1,36 @@
-<div class="container">
-  <h1>Report details</h1>
+  <h1><%= @report.title %></h1>
 
-  <% if @report.photo.attached? %>
-    <%= cl_image_tag @report.photo.key, height: 150, width: 250%>
-  <% else %>
+  <div class="report-show-card">
+    <% if @report.photo.attached? %>
+    <%= cl_image_tag @report.photo.key ,height: 150, width: 250%>
+    <% else %>
     <p>No photo</p>
-  <% end %>
-  <p><%= @report.title %></p>
-  <p><%= @report.location %></p>
-  <p><%= @report.category.name %></p>
-  <p><%= @report.description %></p>
-  <%= link_to upvote_report_path(@report) do %>
-    <i class="fas fa-chevron-up"></i>
-  <% end %>
-  <p><%= @report.total_votes %></p>
-  <%= link_to downvote_report_path(@report) do %>
-    <i class="fas fa-chevron-down"></i>
-  <% end  %>
+    <% end %>
+    <div class="container">
+      <p><i class="fas fa-map-marker-alt mr-2"></i><%= @report.location %></p>
+      <p class="pill-category"><%= @report.category.name %></p>
+      <div class="report-show-text row">
+
+        <div class="col-11">
+          <p><%= @report.description %></p>
+        </div>
+        <div class="col-1 text-right">
+          <%= link_to upvote_report_path(@report) do %>
+          <i class="fas fa-chevron-up"></i>
+          <% end %>
+          <p class="mb-0"><%= @report.total_votes %></p>
+          <%= link_to downvote_report_path(@report) do %>
+          <i class="fas fa-chevron-down"></i>
+          <% end %>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div #map-show>
+
+  </div>
   <br>
   <br>
   <%= link_to "Back", reports_path, class: "btn btn-secondary"  %>
-</div>
+
