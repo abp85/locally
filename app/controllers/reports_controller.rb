@@ -4,7 +4,11 @@ class ReportsController < ApplicationController
 
   def index
     @reports = policy_scope(Report)
-    @reports = Report.geocoded
+    if params[:latitude]
+      @reports = Report.near([params[:latitude], params[:longitude]], 2)
+    else
+      @reports = Report.geocoded
+    end
 
     @markers = @reports.map do |report|
       {

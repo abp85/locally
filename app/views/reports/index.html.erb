@@ -10,172 +10,58 @@
 
 
 
-<ul class="nav report-tab">
-  <li><a class="active" data-toggle="tab" href="#list">List</a></li>
-  <li><a data-toggle="tab" href="#map">Map</a></li>
-</ul>
+<div class="container">
 
-<div class="tab-content">
-  <div id="list" class="tab-pane active">
+  <ul class="nav report-tab">
+    <li><a class="active" data-toggle="tab" href="#list">List</a></li>
+    <li><a data-toggle="tab" href="#map_container">Map</a></li>
+  </ul>
 
-    <div class="report-card">
-      <img src="https://www.mybins.com.au/uploads/2/5/6/8/25680378/published/broken-wheeli-bin.jpg?1518481761">
-      <div class="report-card-info">
-        <div class="report-text">
-          <div>
-            <h2>Card bin crashed</h2>
-            <p><i class="fas fa-map-marker-alt mr-2"></i>Barcelona</p>
-          </div>
-          <div>
-            <a href="#" class="pill-category">Category</a>
-          </div>
-        </div>
-        <div class="upvotes-buttons mr-3">
-          <a href="#"><i class="fas fa-chevron-up upvote-arrow"></i></a>
 
-          <span class="line-height">413</span>
-          <a href="#"><i class="fas fa-chevron-down downvote-arrow"></i></a>
-        </div>
-      </div>
-    </div>
+  <div class="tab-content">
 
-    <div class="report-card">
-      <img src="https://www.mybins.com.au/uploads/2/5/6/8/25680378/published/broken-wheeli-bin.jpg?1518481761">
-      <div class="report-card-info">
-        <div class="report-text">
-          <div>
-            <h2>Card bin crashed</h2>
-            <p><i class="fas fa-map-marker-alt mr-2"></i>Barcelona</p>
-          </div>
-          <div>
-            <a href="#" class="pill-category">Category</a>
-          </div>
-        </div>
-        <div class="upvotes-buttons mr-3">
-          <a href="#"><i class="fas fa-chevron-up upvote-arrow"></i></a>
+    <div id="list" class="tab-pane active">
 
-          <span class="line-height">413</span>
-          <a href="#"><i class="fas fa-chevron-down downvote-arrow"></i></a>
+      <div class="cards">
+          <% @reports.take(4).each do |report|  %>
+            <%= link_to report_path(report) do %>
+              <div class="report-card">
+               <% if report.photo.attached? %>
+                <%= cl_image_tag report.photo.key  %>
+               <% else %>
+                <img src="https://www.rd.com/wp-content/uploads/2019/04/mai-khao-beach-phuket-thailand-june-222018-dirty-beach-along-the-shoreline.jpg">
+               <% end %>
+               <div class="report-card-info">
+                 <div class="report-text">
+                  <div>
+                    <h2><%= report.title%></h2>
+                    <p><i class="fas fa-map-marker-alt mr-2"></i><%= report.location.split(",").first%></p>
+                    <a href="#" class="pill-category"><%= report.category.name %></a>
+                  </div>
+                </div>
+              </div>
+                <div class="upvotes-buttons mr-3">
+                  <a href="#"><i class="fas fa-chevron-up upvote-arrow"></i></a>
+                  <span class="line-height"><%= report.total_votes %></span>
+                  <a href="#"><i class="fas fa-chevron-down downvote-arrow"></i></a>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
         </div>
       </div>
-    </div>
-
-    <div class="report-card">
-      <img src="https://www.mybins.com.au/uploads/2/5/6/8/25680378/published/broken-wheeli-bin.jpg?1518481761">
-      <div class="report-card-info">
-        <div class="report-text">
-          <div>
-            <h2>Card bin crashed</h2>
-            <p><i class="fas fa-map-marker-alt mr-2"></i>Barcelona</p>
-          </div>
-          <div>
-            <a href="#" class="pill-category">Category</a>
-          </div>
-        </div>
-        <div class="upvotes-buttons mr-3">
-          <a href="#"><i class="fas fa-chevron-up upvote-arrow"></i></a>
-
-          <span class="line-height">413</span>
-          <a href="#"><i class="fas fa-chevron-down downvote-arrow"></i></a>
-        </div>
-      </div>
-    </div>
-
-    <div class="report-card">
-      <img src="https://www.mybins.com.au/uploads/2/5/6/8/25680378/published/broken-wheeli-bin.jpg?1518481761">
-      <div class="report-card-info">
-        <div class="report-text">
-          <div>
-            <h2>Card bin crashed</h2>
-            <p><i class="fas fa-map-marker-alt mr-2"></i>Barcelona</p>
-          </div>
-          <div>
-            <a href="#" class="pill-category">Category</a>
-          </div>
-        </div>
-        <div class="upvotes-buttons mr-3">
-          <a href="#"><i class="fas fa-chevron-up upvote-arrow"></i></a>
-
-          <span class="line-height">413</span>
-          <a href="#"><i class="fas fa-chevron-down downvote-arrow"></i></a>
-        </div>
-      </div>
-    </div>
-
-    <div class="report-card">
-      <img src="https://www.mybins.com.au/uploads/2/5/6/8/25680378/published/broken-wheeli-bin.jpg?1518481761">
-      <div class="report-card-info">
-        <div class="report-text">
-          <div>
-            <h2>Card bin crashed</h2>
-            <p><i class="fas fa-map-marker-alt mr-2"></i>Barcelona</p>
-          </div>
-          <div>
-            <a href="#" class="pill-category">Category</a>
-          </div>
-        </div>
-        <div class="upvotes-buttons mr-3">
-          <a href="#"><i class="fas fa-chevron-up upvote-arrow"></i></a>
-
-          <span class="line-height">413</span>
-          <a href="#"><i class="fas fa-chevron-down downvote-arrow"></i></a>
-        </div>
-      </div>
-    </div>
-
-    <div class="report-card">
-      <img src="https://www.mybins.com.au/uploads/2/5/6/8/25680378/published/broken-wheeli-bin.jpg?1518481761">
-      <div class="report-card-info">
-        <div class="report-text">
-          <div>
-            <h2>Card bin crashed</h2>
-            <p><i class="fas fa-map-marker-alt mr-2"></i>Barcelona</p>
-          </div>
-          <div>
-            <a href="#" class="pill-category">Category</a>
-          </div>
-        </div>
-        <div class="upvotes-buttons mr-3">
-          <a href="#"><i class="fas fa-chevron-up upvote-arrow"></i></a>
-
-          <span class="line-height">413</span>
-          <a href="#"><i class="fas fa-chevron-down downvote-arrow"></i></a>
-        </div>
-      </div>
-    </div>
-
-    <div class="report-card">
-      <img src="https://www.mybins.com.au/uploads/2/5/6/8/25680378/published/broken-wheeli-bin.jpg?1518481761">
-      <div class="report-card-info">
-        <div class="report-text">
-          <div>
-            <h2>Card bin crashed</h2>
-            <p><i class="fas fa-map-marker-alt mr-2"></i>Barcelona</p>
-          </div>
-          <div>
-            <a href="#" class="pill-category">Category</a>
-          </div>
-        </div>
-        <div class="upvotes-buttons mr-3">
-          <a href="#"><i class="fas fa-chevron-up upvote-arrow"></i></a>
-
-          <span class="line-height">413</span>
-          <a href="#"><i class="fas fa-chevron-down downvote-arrow"></i></a>
-        </div>
-      </div>
-    </div>
   </div>
-  <div id="map" class="tab-pane fade">
-    <div class="container">
-      <%= image_tag("https://forums.macrumors.com/attachments/upload_2018-7-19_18-55-17-jpeg.771616/", class: "img-map") %>
-    </div>
-  </div>
+
+      <div id="map_container" class="tab-pane fade">
+        <div id="map"
+             style="width: 100%; height: 600px;"
+             data-markers="<%= @markers.to_json %>"
+             data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+             </div>
+      </div>
+
 </div>
 
 
 
-<div id="map"
-     style="width: 100%; height: 600px;"
-     data-markers="<%= @markers.to_json %>"
-     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 
