@@ -1,4 +1,4 @@
-.report-card {
+.home-card {
   margin-bottom: 12px;
   overflow: hidden;
   height: 100px;
@@ -31,29 +31,25 @@
   }
 }
 
-.upvotes-buttons {
+.upvotes-info {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 
-  .upvote-arrow {
-  color: $locally-green;
-  }
-
-  .downvote-arrow {
-  color: $locally-red;
+  p {
+  margin-top: none;
   }
 }
 
-.report-text {
+.home-text {
   display: flex;
   flex-direction: column;
   height: 100%;
   justify-content: space-between;
 }
 
-.report-card-info {
+.home-card-info {
   flex-grow: 1;
   height: 100%;
   padding: 15px;

@@ -39,7 +39,7 @@ loc = ["Carrer De Taxdirt 12, Barcelona", "Carrer de Roc Boronat 53, Barcelona",
   puts repNum
   repTitle = Faker::Marketing.buzzwords
   file = URI.open('https://as2.ftcdn.net/jpg/01/91/15/43/500_F_191154311_XIISKDd8SUxXEE1rudvgxYU3uNTETJXq.jpg')
-  report = Report.create!(title: repTitle.truncate(30), description: '-', location: "#{loc[repNum - 1]}", user_id: rand(1..30), category_id: rand(1..6))
+  report = Report.create!(title: repTitle.truncate(30), description: '-', location: "#{loc[repNum - 1]}", user: User.all.sample, category: Category.all.sample)
   report.photo.attach(io: file, filename: "#{repTitle.gsub(/\s+/, '_')}.jpg", content_type: 'image/jpg')
   repNum += 1
 end
@@ -48,7 +48,7 @@ p "Creating Votes..."
 
 voteValue = ["up", "center", "down"]
 150.times do
-  Vote.create(value: "#{voteValue[rand(0..2)]}", user_id: rand(1..30), report_id: rand(1..10))
+  Vote.create(value: "#{voteValue[rand(0..2)]}", user: User.all.sample, report: Report.all.sample)
 end
 
 p "Process completed"
