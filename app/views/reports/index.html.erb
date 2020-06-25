@@ -1,12 +1,10 @@
-<div class="container">
 
-  <h1>Reports</h1>
+  <h1>Reports in your area</h1>
 
   <ul class="nav report-tab">
     <li><a class="active" data-toggle="tab" href="#list">List</a></li>
     <li><a data-toggle="tab" href="#map_container">Map</a></li>
   </ul>
-
 
   <div class="tab-content">
 
@@ -19,21 +17,25 @@
 
               <div class="report-card">
 
+
                <% if report.photo.attached? %>
                 <%= cl_image_tag report.photo.key  %>
                <% else %>
                 <img src="https://www.rd.com/wp-content/uploads/2019/04/mai-khao-beach-phuket-thailand-june-222018-dirty-beach-along-the-shoreline.jpg">
                <% end %>
 
+
                <div class="report-card-info">
 
                  <div class="report-text">
+
 
                   <div>
                     <h2><%= report.title%></h2>
                     <p><i class="fas fa-map-marker-alt mr-2"></i><%= report.location.split(",").first%></p>
                     <a href="#" class="pill-category"><%= report.category.name %></a>
                   </div>
+
 
                 </div>
 
@@ -55,6 +57,8 @@
         </div>
       </div>
 
+
+
       <div id="map_container" class="tab-pane fade">
         <div id="map"
              style="width: 100%; height: 100vh;"
@@ -63,5 +67,6 @@
              </div>
       </div>
   </div>
+
 </div>
 
