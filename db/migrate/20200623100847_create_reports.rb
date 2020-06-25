@@ -4,7 +4,7 @@ class CreateReports < ActiveRecord::Migration[6.0]
       t.string :location
       t.string :description
       t.float :latitude
-      t.float :longitud
+      t.float :longitude
       t.references :user, null: false, foreing_key: true
       t.references :category, null: false, foreing_key: true
 
