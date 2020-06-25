@@ -4,6 +4,16 @@ class ReportsController < ApplicationController
 
   def index
     @reports = policy_scope(Report)
+    @reports = Report.geocoded
+
+    @markers = @reports.map do |report|
+      {
+        lat: report.latitude,
+        lng: report.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { report: report }),
+        image_url: helpers.asset_url('locally-marker.png')
+      }
+    end
   end
 
   def new
