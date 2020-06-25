@@ -9,6 +9,7 @@
 </div>
 
 
+
 <div class="container">
 
   <ul class="nav report-tab">
@@ -18,6 +19,52 @@
 
   <div class="tab-content">
     <div id="list" class="tab-pane active">
+
+
+<div class="cards">
+    <% @reports.take(4).each do |report|  %>
+      <%= link_to report_path(report) do %>
+        <div class="report-card">
+         <% if report.photo.attached? %>
+          <%= cl_image_tag report.photo.key  %>
+         <% else %>
+          <img src="https://www.rd.com/wp-content/uploads/2019/04/mai-khao-beach-phuket-thailand-june-222018-dirty-beach-along-the-shoreline.jpg">
+         <% end %>
+         <div class="report-card-info">
+           <div class="report-text">
+            <div>
+              <h2><%= report.title%></h2>
+              <p><i class="fas fa-map-marker-alt mr-2"></i><%= report.location.split(",").first%></p>
+              <a href="#" class="pill-category"><%= report.category.name %></a>
+            </div>
+          </div>
+        </div>
+          <div class="upvotes-buttons mr-3">
+            <a href="#"><i class="fas fa-chevron-up upvote-arrow"></i></a>
+            <span class="line-height"><%= report.total_votes %></span>
+            <a href="#"><i class="fas fa-chevron-down downvote-arrow"></i></a>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
       <div class="report-card">
