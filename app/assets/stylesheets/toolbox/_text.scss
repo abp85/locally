@@ -1,7 +1,29 @@
+a {
+  color: #000;
+}
+
 a:hover {
   text-decoration: none;
 }
 
-h1 {
+
+.back-link-color {
   color: $locally-blue;
+  position:fixed;
+  bottom: 65px;
+    left: 0;
+    backdrop-filter: blur(1px);
+    width: 100%;
+    background-color: #ffffffe0;
+    padding-left: 15px;
+    padding-top: 8px;
+}
+
+p, label {
+  font-size: 16px;
+}
+
+h1, h2 {
+
+  font-size: 1.8em;
 }
