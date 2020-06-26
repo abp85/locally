@@ -1,20 +1,24 @@
-  <h1><%= @report.title %></h1>
-
-  <div class="report-show-card">
-    <% if @report.photo.attached? %>
-    <%= cl_image_tag @report.photo.key ,height: 150, width: 250%>
-    <% else %>
-    <p>No photo</p>
-    <% end %>
-    <div class="container">
-      <p><i class="fas fa-map-marker-alt mr-2"></i><%= @report.location %></p>
-      <p class="pill-category"><%= @report.category.name %></p>
-      <div class="report-show-text row">
-
-        <div class="col-11">
-          <p><%= @report.description %></p>
+<div class="d-flex flex-column">
+  <div>
+    <h1><%= @report.title.capitalize %></h1>
+    <div class="report-show-card">
+      <% if @report.photo.attached? %>
+      <%= cl_image_tag @report.photo.key ,height: 150, width: 250%>
+      <% else %>
+      <p>No photo</p>
+      <% end %>
+      <div class="container">
+        <div class="d-flex justify-content-between align-items-center mt-3">
+          <p data-toggle="modal" data-target="#exampleModal"><i class="fas fa-map-marker-alt mr-2"></i><%= @report.location %></p>
         </div>
-        <div class="col-1 text-right">
+        <p><i class="fas fa-calendar-alt mr-2"></i><%= @report.created_at.strftime('%b %d, %Y') %></p>
+        <p class="pill-category"><%= @report.category.name %></p>
+        <div class="report-show-text row no-gutters">
+
+          <div class="col-11 pr-2">
+           <p><%= truncate(@report.description, :ommision => "... Read More", :length => 100)  %></p>
+         </div>
+         <div class="col-1 text-center">
           <%= link_to upvote_report_path(@report) do %>
           <i class="fas fa-chevron-up"></i>
           <% end %>
@@ -27,10 +31,44 @@
       </div>
     </div>
   </div>
-  <div #map-show>
+</div>
 
+<%= link_to reports_path, class: "back-link-color" do %>
+<i class="fas fa-angle-left mr-2 mb-3"></i><em>Back</em>
+<% end %>
+
+</div>
+<!-- <div id="modal-map">
+  <div id="map" class="mt-3 mb-1"
+  style="width: 100%; height: 20vh;  border-radius: 5px"
+  data-markers="<%#= @markers.to_json %>"
+  data-mapbox-api-key="<%#= ENV['MAPBOX_API_KEY'] %>">
+</div>
+</div> -->
+
+
+<!-- Button trigger modal -->
+<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  Launch demo modal
+</button> -->
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-end" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <p class="modal-title" id="exampleModalLabel"><i class="fas fa-map-marker-alt mr-2"></i><%= @report.location %></p>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div id="map" class="mt-3 mb-1"
+        style="width: 100%; height: 40vh;  border-radius: 5px"
+        data-markers="<%= @marker.to_json %>"
+        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div>
+    </div>
   </div>
-  <br>
-  <br>
-  <%= link_to "Back", reports_path, class: "btn btn-secondary"  %>
-
+</div>
+</div>
