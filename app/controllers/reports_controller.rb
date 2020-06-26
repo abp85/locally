@@ -42,6 +42,11 @@ class ReportsController < ApplicationController
 
   def show
     authorize @report
+
+    @marker = [{ lat: @report.latitude,
+                 lng: @report.longitude,
+                 infoWindow: render_to_string(partial: "info_window", locals: { report: @report }),
+                 image_url: helpers.asset_url('locally-marker.png') }]
   end
 
   def update
