@@ -16,7 +16,7 @@
         <div class="report-show-text row no-gutters">
 
           <div class="col-11 pr-2">
-           <p><%= truncate(@report.description, :ommision => "... Read More", :length => 100)  %></p>
+           <p><%= @report.description %></p>
          </div>
          <div class="col-1 text-center">
           <%= link_to upvote_report_path(@report) do %>
