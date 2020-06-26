@@ -105,7 +105,7 @@ img = ["https://upload.wikimedia.org/wikipedia/commons/2/2b/Ickworth_Park%2C_Suf
 
 loc.count.times do |repNum|
   file = URI.open("#{img[repNum - 1]}")
-  report = Report.create!(title:"#{repTitle[repNum - 1]}", description: "#{repDesc[repNum - 1]}", location: "#{loc[repNum - 1]}", user: User.all.sample, category: Category.all.sample)
+  report = Report.create!(title:"#{repTitle[repNum - 1]}", description: "#{repDesc[repNum - 1]}", location: "#{loc[repNum - 1]}", user: User.all.sample, category: Category.all.sample, report_votes: 0)
   report.photo.attach(io: file, filename: "#{repTitle[repNum - 1].gsub(/\s+/, '_')}.jpg", content_type: 'image/jpg')
 end
 

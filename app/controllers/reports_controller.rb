@@ -42,7 +42,6 @@ class ReportsController < ApplicationController
 
   def show
     authorize @report
-
     @marker = [{ lat: @report.latitude,
                  lng: @report.longitude,
                  infoWindow: render_to_string(partial: "info_window", locals: { report: @report }),
@@ -68,8 +67,10 @@ class ReportsController < ApplicationController
     else
       @vote.value = "up"
     end
-
     @vote.save
+
+    @report.report_votes = @report.total_votes
+    @report.save
 
     redirect_to report_path(@report)
   end
@@ -85,6 +86,9 @@ class ReportsController < ApplicationController
     end
 
     @vote.save
+
+    @report.report_votes = @report.total_votes
+    @report.save
 
     redirect_to report_path(@report)
   end
