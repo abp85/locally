@@ -2,13 +2,13 @@
   <h1>Because we deserve a better community.</h1>
   <h3>The simplest way to report your issues to local authorities</h3>
 </div>
-  <div class="home-banner pt-5 px-3 " style="background-image: url('https://i.pinimg.com/originals/99/9b/71/999b711bda14eea62712bb04d29f2a9c.jpg')">
+  <div class="home-banner pt-5 px-3 " style="background-image: url(<%= image_path('home-banner.jpg') %>)">
       <%= link_to 'Report an issue', new_report_path, :class => "btn-home-primary btn-primary" %>
   </div>
 
     <div class="browse">
       <h6>You can also see existing reports:</h6>
-      <a href="#" class="geocode btn-home-secondary btn-secondary">Browse</a>
+      <%= link_to 'Browse', reports_path, :class => "btn-home-secondary btn-secondary" %>
     </div>
 
     <div class="report-header argument-header">
