@@ -9,7 +9,6 @@ class ReportsController < ApplicationController
     # else
     #   @reports = Report.geocoded
     # end
-
     if params[:query].present?
       @reports = Report.near(params[:query], 2)
     else
@@ -41,7 +40,7 @@ class ReportsController < ApplicationController
     @report.report_votes = 0
     authorize @report
     if @report.save
-      redirect_to reports_path
+      redirect_to report_path(@report)
     else
       render :new
     end

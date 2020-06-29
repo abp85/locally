@@ -10,20 +10,38 @@ a:hover {
 .back-link-color {
   color: $locally-blue;
   position:fixed;
-  bottom: 65px;
-    left: 0;
-    backdrop-filter: blur(1px);
-    width: 100%;
-    background-color: rgba(250,249,249,0.88);
-    padding-left: 15px;
-    padding-top: 8px;
+  bottom: 50px;
+  left: 0;
+  backdrop-filter: blur(1px);
+  width: 100%;
+  background-color: rgba(250,249,249,0.88);
+  padding: 8px 0 8px 15px;
 }
 
 p, label {
-  font-size: 16px;
+  font-size: 20px;
+}
+
+#reports-show p {
+  font-weight: 200;
 }
 
 h1, h2 {
-
   font-size: 1.8em;
+}
+
+#reports-show h2 {
+  font-size: 20px !important;
+}
+
+.text-blue {
+  color: $locally-blue;
+}
+
+.text-gray {
+  color: #717171;
+}
+
+.text-bold {
+  font-weight: 500;
 }

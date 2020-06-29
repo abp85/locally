@@ -10,7 +10,7 @@
       <h6>You can also search for existing reports:</h6>
       <%#= link_to 'Browse', reports_path, :class => "btn-home-secondary btn-secondary geocode" %>
       <%= form_with url: reports_path, method: :get, local: true, class: "form-inline mt-3" do %>
-        <%= text_field_tag :query, "", class: "form-control w-75", placeholder: "Where are you?" %>
+        <%= text_field_tag :query, "", class: "form-control w-45", placeholder: "Where are you?" %>
         <%= submit_tag "Search", class: "btn-home-secondary btn-secondary" %>
       <% end %>
     </div>
@@ -36,7 +36,7 @@
   <h4>Popular reports</h4>
 
   <div class="cards">
-    <% @reports.sort_by { |r| r[:report_votes]}.reverse.each do |report|  %>
+    <% @reports.sort_by { |r| r.total_votes}.reverse.take(4).each do |report|  %>
       <%= link_to report_path(report) do %>
         <div class="home-card">
          <% if report.photo.attached? %>
