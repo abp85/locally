@@ -41,7 +41,7 @@ class ReportsController < ApplicationController
     @report.report_votes = 0
     authorize @report
     if @report.save
-      redirect_to reports_path
+      redirect_to report_path(@report)
     else
       render :new
     end
