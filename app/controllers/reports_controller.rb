@@ -9,7 +9,6 @@ class ReportsController < ApplicationController
     # else
     #   @reports = Report.geocoded
     # end
-
     if params[:query].present?
       @reports = Report.near(params[:query], 2)
     else
