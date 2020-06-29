@@ -1,60 +1,99 @@
 .report-card {
   margin-bottom: 12px;
   overflow: hidden;
-  height: 100px;
+  /*height: 155px;*/
   background: white;
   box-shadow: 0 0 8px rgba(0,0,0,0.2);
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  border-radius: 10px;
-
-  img {
-    height: 100px;
-    width: 110px;
-    object-fit: cover;
-  }
+  border-radius: 8px;
+  position: relative;
 
   h2 {
-    font-size: 16px;
+    font-size: 19px;
     font-weight: 450px;
-    margin: 0;
+    margin-bottom: 4px;
     color: black;
   }
   p {
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.4;
-  opacity: .7;
-  margin-top: 8px;
+  font-weight: 300;
   margin-bottom: 2px;
-  color: black;
+  color: #888e91;
+  }
+  a:first-child {
+    height: 100%;
   }
 }
 
 .upvotes-buttons {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
 
-  .upvote-arrow {
-  color: $locally-green;
+  .fa-thumbs-up {
+  color: white;
+  background-color: $locally-green;
+  padding: 8px 8px;
+  border-radius: 50px;
   }
-
-  .downvote-arrow {
-  color: $locally-red;
+  .fa-thumbs-down {
+  color: white;
+  background-color: $locally-red;
+  padding: 8px 8px;
+  border-radius: 50px;
+  margin-left: 5px;
   }
 }
 
 .report-text {
   display: flex;
   flex-direction: column;
-  height: 100%;
   justify-content: space-between;
 }
 
 .report-card-info {
   flex-grow: 1;
   height: 100%;
-  padding: 15px;
+  padding: 12px 8px;
+}
+
+.img-votes {
+  position: relative;
+  display: flex;
+  align-items: end;
+  justify-content: end;
+  img {
+  height: 135px;
+  width: 135px;
+  object-fit: cover;
+  padding: 10px;
+  border-radius: 14px;
+  }
+  .vote-count {
+  position: absolute;
+  bottom: 4px;
+  right: 4px;
+  background-color: $locally-blue;
+  color: white;
+  padding: 2px 6px;
+  border-radius: 5px;
+  font-size: 14px;
+
+  span {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    font-weight: 500;
+  }
+  p {
+    color: white;
+    font-size: 8px;
+    margin: 0;
+  }
+  }
 }
