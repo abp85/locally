@@ -29,7 +29,7 @@
 
       <div class="cards">
 
-          <% @reports.each do |report|  %>
+          <% @reports.sort_by { |r| r.total_votes}.reverse.each do |report|  %>
               <div class="report-card">
                 <%= link_to report_path(report) do %>
                   <div class="img-votes">
