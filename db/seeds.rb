@@ -93,7 +93,7 @@ img = ["https://upload.wikimedia.org/wikipedia/commons/2/2b/Ickworth_Park%2C_Suf
       "https://upload.wikimedia.org/wikipedia/commons/7/75/Great_Portland_Street_London_Traffic.jpg",
       "https://arc-anglerfish-arc2-prod-tbt.s3.amazonaws.com/public/4ABN7POFTFHENBPKDI4QYDLBQY.jpg",
       "https://3kpnuxym9k04c8ilz2quku1czd-wpengine.netdna-ssl.com/wp-content/uploads/2019/05/42615859735_d3100ec492_o.jpg",
-      "https://lh3.googleusercontent.com/proxy/ekTl4IqSC2vhmxThoKrALg2QwNjTTBeKIilZ33i6uZ8wbTukn6fnCgFHh1MdOVxeYfwHk1FVodyliOJbX727MgYQR49BMf9N5mVB1tmyZpwqISbF334OMuvB6ZfJQxl6HXZCA9kbkjzGz1BO_qvKrUo",
+      "https://www.entouriste.com/wp-content/uploads/2013/10/Night-on-the-Streets-of-Barcelona-Spain.jpg",
       "https://static.timesofisrael.com/www/uploads/2018/11/iStock-938520600-e1542280189799.jpg",
       "https://www.swarco.com/sites/default/files/public/hero/image/2018-10/cyclingpath_header.jpg",
       "https://live.staticflickr.com/4099/4774162801_ffb7d48383_b.jpg",
@@ -104,6 +104,7 @@ img = ["https://upload.wikimedia.org/wikipedia/commons/2/2b/Ickworth_Park%2C_Suf
       "https://i.pinimg.com/originals/a1/48/9d/a1489dffc6594d0014a692ec0ef99006.jpg"]
 
 loc.count.times do |repNum|
+  p repNum
   file = URI.open("#{img[repNum - 1]}")
   report = Report.create!(title:"#{repTitle[repNum - 1]}", description: "#{repDesc[repNum - 1]}", location: "#{loc[repNum - 1]}", user: User.all.sample, category: Category.all.sample, report_votes: 0)
   report.photo.attach(io: file, filename: "#{repTitle[repNum - 1].gsub(/\s+/, '_')}.jpg", content_type: 'image/jpg')

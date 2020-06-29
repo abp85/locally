@@ -28,6 +28,7 @@ class ReportsController < ApplicationController
   def create
     @report = Report.new(report_params)
     @report.user_id = current_user.id
+    @report.report_votes = 0
     authorize @report
     if @report.save
       redirect_to reports_path
@@ -100,6 +101,6 @@ class ReportsController < ApplicationController
   end
 
   def report_params
-    params.require(:report).permit(:title, :description, :location, :category_id, :photo)
+    params.require(:report).permit(:title, :description, :location, :category_id, :photo, :report_votes)
   end
 end

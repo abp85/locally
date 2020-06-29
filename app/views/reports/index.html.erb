@@ -12,7 +12,7 @@
 
       <div class="cards">
 
-          <% @reports.each do |report|  %>
+          <% @reports.sort_by { |r| r[:report_votes]}.reverse.each do |report|  %>
             <%= link_to report_path(report) do %>
 
               <div class="report-card">
