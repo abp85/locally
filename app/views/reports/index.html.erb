@@ -55,7 +55,7 @@
                       <%= link_to report.category.name, reports_path(request.params.merge(category_id: report.category.id)), class: "pill-category" %>
                     </div>
                   </div>
-                  <div class="upvotes-buttons">
+                  <div class="upvotes-buttons upvotes-position-index-card">
                     <%= link_to upvote_report_path(report) do %>
                       <i class="fas fa-thumbs-up"></i>
                     <%end%>
