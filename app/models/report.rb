@@ -1,4 +1,12 @@
 class Report < ApplicationRecord
+  include PgSearch::Model
+
+  pg_search_scope :search_by_location,
+    against: [:location],
+    using: {
+      tsearch: { prefix: true }
+    }
+
   belongs_to :user
   belongs_to :category
   has_many :votes

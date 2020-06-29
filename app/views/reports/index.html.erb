@@ -1,6 +1,11 @@
 
   <h1>Reports in your area</h1>
 
+  <%= form_with url: reports_path, method: :get, local: true, class: "form-inline mt-3" do %>
+      <%= text_field_tag :query, "", class: "form-control w-75", placeholder: "Address" %>
+      <%= submit_tag "Search", class: "btn-home-secondary btn-secondary" %>
+  <% end %>
+
   <ul class="nav report-tab">
     <li><a class="active" data-toggle="tab" href="#list">List</a></li>
     <li><a data-toggle="tab" href="#map_container">Map</a></li>
@@ -33,7 +38,8 @@
                   <div>
                     <h2><%= report.title%></h2>
                     <p><i class="fas fa-map-marker-alt mr-2"></i><%= report.location.split(",").first%></p>
-                    <a href="#" class="pill-category"><%= report.category.name %></a>
+                    <%= link_to report.category.name, reports_path(request.params.merge(category_id: report.category.id)), class: "pill-category" %>
+                   <!--  <a href="#" class="pill-category"><%= report.category.name %></a> -->
                   </div>
 
 

@@ -4,10 +4,20 @@ class ReportsController < ApplicationController
 
   def index
     @reports = policy_scope(Report)
-    if params[:latitude]
-      @reports = Report.near([params[:latitude], params[:longitude]], 5)
+    # if params[:latitude]
+    #   @reports = Report.near([params[:latitude], params[:longitude]], 5)
+    # else
+    #   @reports = Report.geocoded
+    # end
+
+    if params[:query].present?
+      @reports = Report.near(params[:query], 2)
     else
       @reports = Report.geocoded
+    end
+
+    if params[:category_id].present?
+      @reports = @reports.where(category_id: params[:category_id])
     end
 
     @markers = @reports.map do |report|
