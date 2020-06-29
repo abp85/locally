@@ -11,9 +11,13 @@ class ReportsController < ApplicationController
     # end
 
     if params[:query].present?
-      @reports = Report.search_by_location(params[:query])
+      @reports = Report.near(params[:query], 2)
     else
       @reports = Report.geocoded
+    end
+
+    if params[:category_id].present?
+      @reports = @reports.where(category_id: params[:category_id])
     end
 
     @markers = @reports.map do |report|
