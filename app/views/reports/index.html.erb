@@ -29,49 +29,43 @@
 
       <div class="cards">
 
-          <% @reports.sort_by { |r| r[:report_votes]}.reverse.each do |report|  %>
-            <%= link_to report_path(report) do %>
-
+          <% @reports.each do |report|  %>
               <div class="report-card">
-
-
-               <% if report.photo.attached? %>
-                <%= cl_image_tag report.photo.key  %>
-               <% else %>
-                <img src="https://www.rd.com/wp-content/uploads/2019/04/mai-khao-beach-phuket-thailand-june-222018-dirty-beach-along-the-shoreline.jpg">
-               <% end %>
-
-
-               <div class="report-card-info">
-
-                 <div class="report-text">
-
-
-                  <div>
-                    <h2><%= report.title%></h2>
-                    <p><i class="fas fa-map-marker-alt mr-2"></i><%= report.location.split(",").first%></p>
-                    <%= link_to report.category.name, reports_path(request.params.merge(category_id: report.category.id)), class: "pill-category" %>
-                   <!--  <a href="#" class="pill-category"><%= report.category.name %></a> -->
+                <%= link_to report_path(report) do %>
+                  <div class="img-votes">
+                    <% if report.photo.attached? %>
+                      <%= cl_image_tag report.photo.key  %>
+                    <% else %>
+                      <img src="https://www.rd.com/wp-content/uploads/2019/04/mai-khao-beach-phuket-thailand-june-222018-dirty-beach-along-the-shoreline.jpg">
+                    <% end %>
+                    <div class="vote-count">
+                      <span class="line-height"><%= report.total_votes %></span>
+                        <p>VOTES</p>
+                    </div>
                   </div>
-
-
+                <% end %>
+                <div class="report-card-info">
+                  <div class="report-text">
+                    <div>
+                      <%= link_to report_path(report) do %>
+                        <h2><%= report.title%></h2>
+                        <p><i class="fas fa-map-marker-alt mr-1"></i><%= report.location.split(",").first%></p>
+                        <p><i class="far fa-calendar-alt mr-1"></i><%= (DateTime.current.to_date - report.created_at.to_date).to_i %> days ago</p>
+                      <% end %>
+                      <%= link_to report.category.name, reports_path(request.params.merge(category_id: report.category.id)), class: "pill-category" %>
+                    </div>
+                  </div>
+                  <div class="upvotes-buttons">
+                    <%= link_to upvote_report_path(report) do %>
+                      <i class="fas fa-thumbs-up"></i>
+                    <%end%>
+                    <%= link_to downvote_report_path(report) do %>
+                      <i class="fas fa-thumbs-down"></i>
+                    <%end%>
+                  </div>
                 </div>
-
               </div>
-
-                <div class="upvotes-buttons mr-3">
-                  <%= link_to upvote_report_path(report) do %>
-                    <i class="fas fa-chevron-up"></i>
-                  <% end %>
-                  <span class="line-height"><%= report.total_votes %></span>
-                  <%= link_to downvote_report_path(report) do %>
-                    <i class="fas fa-chevron-down"></i>
-                  <% end  %>
-                </div>
-
-              </div>
-            <% end %>
-          <% end %>
+          <%end%>
         </div>
       </div>
 
