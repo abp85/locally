@@ -4,10 +4,20 @@ class ReportsController < ApplicationController
 
   def index
     @reports = policy_scope(Report)
-    if params[:latitude]
-      @reports = Report.near([params[:latitude], params[:longitude]], 5)
+    # if params[:latitude]
+    #   @reports = Report.near([params[:latitude], params[:longitude]], 5)
+    # else
+    #   @reports = Report.geocoded
+    # end
+
+    if params[:query].present?
+      @reports = Report.near(params[:query], 2)
     else
       @reports = Report.geocoded
+    end
+
+    if params[:category_id].present?
+      @reports = @reports.where(category_id: params[:category_id])
     end
 
     @markers = @reports.map do |report|
@@ -28,6 +38,7 @@ class ReportsController < ApplicationController
   def create
     @report = Report.new(report_params)
     @report.user_id = current_user.id
+    @report.report_votes = 0
     authorize @report
     if @report.save
       redirect_to reports_path
@@ -42,7 +53,6 @@ class ReportsController < ApplicationController
 
   def show
     authorize @report
-
     @marker = [{ lat: @report.latitude,
                  lng: @report.longitude,
                  infoWindow: render_to_string(partial: "info_window", locals: { report: @report }),
@@ -68,8 +78,10 @@ class ReportsController < ApplicationController
     else
       @vote.value = "up"
     end
-
     @vote.save
+
+    @report.report_votes = @report.total_votes
+    @report.save
 
     redirect_to report_path(@report)
   end
@@ -86,6 +98,9 @@ class ReportsController < ApplicationController
 
     @vote.save
 
+    @report.report_votes = @report.total_votes
+    @report.save
+
     redirect_to report_path(@report)
   end
 
@@ -96,6 +111,6 @@ class ReportsController < ApplicationController
   end
 
   def report_params
-    params.require(:report).permit(:title, :description, :location, :category_id, :photo)
+    params.require(:report).permit(:title, :description, :location, :category_id, :photo, :report_votes)
   end
 end

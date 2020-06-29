@@ -33,6 +33,7 @@ gem 'pundit'
 gem 'cloudinary'
 gem 'geocoder'
 gem 'faker'
+gem 'pg_search'
 
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
