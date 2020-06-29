@@ -1,13 +1,12 @@
 <div class="bottom-navbar fixed-bottom">
   <div class="<%= 'active' if current_page?(reports_path) %>">
     <%= link_to reports_path do %>
-    <i class="far fa-bookmark"></i>
+    <i class="far fa-list-alt"></i>
     <% end %>
   </div>
   <div class="<%= 'active' if current_page?(new_report_path) %>">
     <%= link_to new_report_path, class: "plus-button" do %>
     <span>+</span>
-    <!-- <i class="fas fa-plus-circle big-plus-button"></i> -->
     <% end %>
   </div>
   <div class="<%= 'active' if current_page?(profile_path) %>">
