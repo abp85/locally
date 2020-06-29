@@ -1,10 +1,22 @@
 
   <h1>Reports in your area</h1>
 
+  <div class="browse">
   <%= form_with url: reports_path, method: :get, local: true, class: "form-inline mt-3" do %>
-      <%= text_field_tag :query, "", class: "form-control w-75", placeholder: "Address" %>
+      <%= text_field_tag :query, "", class: "form-control w-45", placeholder: "Address" %>
       <%= submit_tag "Search", class: "btn-home-secondary btn-secondary" %>
   <% end %>
+  </div>
+
+
+  <div class="container d-flex">
+    <% if params[:query].present? %>
+      <%= link_to params[:query], reports_path(request.params.except(:query)), class: "pill-category" %>
+    <% end %>
+    <% if params[:category_id].present? %>
+      <%= link_to @reports.first.category.name, reports_path(request.params.except(:category_id)), class: "pill-category" %>
+    <% end %>
+    </div>
 
   <ul class="nav report-tab">
     <li><a class="active" data-toggle="tab" href="#list">List</a></li>
