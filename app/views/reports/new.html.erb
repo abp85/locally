@@ -4,7 +4,7 @@
   <%= f.input :photo, as: :file %>
   <%= f.input :title %>
   <%= f.input :description %>
-  <%= f.input :location %>
+  <%= f.input :location, class: "" %>
   <%= f.association :category, prompt: 'Choose a category'%>
   <%= f.button :submit , class: "btn-primary" %>
   <%= link_to "Cancel", root_path, class: "btn-secondary" %>
