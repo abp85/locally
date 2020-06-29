@@ -1,16 +1,15 @@
 .pill-category {
   padding: 1px 8px;
   border-radius: 20px;
-  border: 1px solid #c1c1c1;
-  color: #a8a8a8;
+  color: #7c8ffc;
   transition: background 0.3s ease;
   text-decoration: none;
   width: fit-content;
-
+  background-color: #e0e4fe;
   font-size: 10px;
   &:hover {
   text-decoration: none;
-  color: #a8a8a8;
+  color: $locally-blue;
   }
 }
 
