@@ -9,3 +9,18 @@
 .modal-dialog-centered.modal-end {
   align-items: flex-end;
 }
+
+
+.show-votes {
+  color: $locally-white;
+  background-color: $locally-blue;
+  width: fit-content;
+  text-align: center;
+  padding: 10px;
+  border-radius: $border-radius
+
+  p {
+    font-size: 18px;
+    font-weight: 700;
+  }
+}
