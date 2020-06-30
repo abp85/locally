@@ -2,7 +2,7 @@
   <div>
     <h1><%= @report.title.capitalize %></h1>
     <h2><span class="text-gray">by</span> <span class="text-blue text-bold"><%= @report.user.first_name %></span></h2>
-    <em class="text-gray"><i class="fas fa-calendar-alt mr-2"></i><%= @report.created_at.strftime('%b %d, %Y') %></em>
+    <em class="text-gray"><i class="fas fa-calendar-alt mr-2"></i><%= time_ago_in_words(@report.created_at) %> ago</em>
 
     <div class="report-show-card mt-3" >
 
