@@ -10,13 +10,13 @@ class ReportsController < ApplicationController
     #   @reports = Report.geocoded
     # end
     if params[:query].present?
-      @reports = Report.near(params[:query], 2)
+      @reports = Report.near(params[:query], 2).pending
     else
-      @reports = Report.geocoded
+      @reports = Report.geocoded.pending
     end
 
     if params[:category_id].present?
-      @reports = @reports.where(category_id: params[:category_id])
+      @reports = @reports.where(category_id: params[:category_id]).pending
     end
 
     @markers = @reports.map do |report|
