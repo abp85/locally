@@ -14,8 +14,6 @@ export default class extends Controller {
         } else {
           button.className = 'far fa-check-square';
         }
-        console.log(button)
-        console.log(data)
       });
   }
 
