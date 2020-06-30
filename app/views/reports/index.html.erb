@@ -29,7 +29,7 @@
 
     <div id="list" class="tab-pane active">
 
-      <div class="cards">
+      <div class="cards" data-controller="votes">
 
           <% @reports.sort_by { |r| r.total_votes}.reverse.each do |report|  %>
               <div class="report-card">
@@ -41,7 +41,7 @@
                       <img src="https://www.rd.com/wp-content/uploads/2019/04/mai-khao-beach-phuket-thailand-june-222018-dirty-beach-along-the-shoreline.jpg">
                     <% end %>
                     <div class="vote-count">
-                      <span class="line-height"><%= report.total_votes %></span>
+                      <span class="line-height " id="vote-<%= report.id %>"><%= report.total_votes %></span>
                         <p>VOTES</p>
                     </div>
                   </div>
@@ -59,12 +59,12 @@
                     </div>
                   </div>
                   <div class="upvotes-buttons upvotes-position-index-card">
-                    <%= link_to upvote_report_path(report) do %>
-                      <i class="fas fa-thumbs-up"></i>
-                    <%end%>
-                    <%= link_to downvote_report_path(report) do %>
-                      <i class="fas fa-thumbs-down"></i>
-                    <%end%>
+                    <%#= link_to upvote_report_path(report), remote: true do %>
+                      <i class="fas fa-thumbs-up" data-action="click->votes#upVote" data-report-id="<%= report.id %>"></i>
+                    <%#end%>
+                    <%#= link_to downvote_report_path(report), remote: true do %>
+                      <i class="fas fa-thumbs-down" data-action="click->votes#downVote" data-report-id="<%= report.id %>"></i>
+                    <%#end%>
                   </div>
                 </div>
               </div>
