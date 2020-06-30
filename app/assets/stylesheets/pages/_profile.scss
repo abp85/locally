@@ -1,7 +1,11 @@
 .user-info {
   display: flex;
   justify-content: space-between;
+  .user-info-text{
+  flex-grow: 0;
+  }
   .avatar-circle {
+  position: relative;
   margin: 0px 5px auto;
   width: 100px;
   height: 100px;
@@ -10,8 +14,9 @@
   border-radius: 50%;
   }
   .initials {
-  position: relative;
+  position: absolute;
   top: 25px; /* 25% of parent */
+  left: 25px;
   font-size: 50px; /* 50% of parent */
   line-height: 50px; /* 50% of parent */
   color: white;
