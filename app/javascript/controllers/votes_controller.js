@@ -31,7 +31,7 @@ export default class extends Controller {
 
         const counter = document.getElementById(`vote-${target.dataset.reportId}`);
         counter.innerHTML = data.count;
-
+        console.log(data)
         // const button = document.getElementById(`usrvote-${target.dataset.reportId}`)
         if ( data.vote === "down" ) {
           target.classList.remove('thumbs-inactive')
