@@ -29,7 +29,7 @@
 
       <div class="cards">
 
-          <% @reports.each do |report|  %>
+          <% @reports.sort_by { |r| r.total_votes}.reverse.each do |report|  %>
               <div class="report-card">
                 <%= link_to report_path(report) do %>
                   <div class="img-votes">
@@ -50,7 +50,8 @@
                       <%= link_to report_path(report) do %>
                         <h2><%= report.title%></h2>
                         <p><i class="fas fa-map-marker-alt mr-1"></i><%= report.location.split(",").first%></p>
-                        <p><i class="far fa-calendar-alt mr-1"></i><%= (DateTime.current.to_date - report.created_at.to_date).to_i %> days ago</p>
+                        <!-- <p><i class="far fa-calendar-alt mr-1"></i><%= ((DateTime.current.to_date - report.created_at.to_date) / 3600).round %> hours ago</p> -->
+                        <p><i class="far fa-calendar-alt mr-1"></i><%= ((DateTime.current.to_date - report.created_at.to_date)).to_i %> days ago</p>
                       <% end %>
                       <%= link_to report.category.name, reports_path(request.params.merge(category_id: report.category.id)), class: "pill-category" %>
                     </div>
