@@ -2,9 +2,11 @@
   <h1>Reports in your area</h1>
 
   <div class="browse">
-  <%= form_with url: reports_path, method: :get, local: true, class: "form-inline mt-3" do %>
-      <%= text_field_tag :query, "", class: "form-control w-45", placeholder: "Address" %>
-      <%= submit_tag "Search", class: "btn-home-secondary btn-secondary" %>
+  <%= form_with url: reports_path, method: :get, local: true, class: "form-inline mt-3 d-flex justify-content-center" do %>
+      <%= text_field_tag :query, "", class: "form-control w-45 search-text", placeholder: "Address" %>
+      <%= button_tag type: 'submit' , class: "search-button" do %>
+        <i class="fas fa-search" aria-hidden="true"></i>
+        <% end %>
   <% end %>
   </div>
 
