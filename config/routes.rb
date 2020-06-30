@@ -6,6 +6,8 @@ Rails.application.routes.draw do
     member do
       get :upvote
       get :downvote
+      get :resolve
+      get :reject
     end
   end
 

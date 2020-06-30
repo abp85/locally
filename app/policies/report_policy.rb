@@ -15,4 +15,13 @@ class ReportPolicy < ApplicationPolicy
   def update?
     user == record.user
   end
+
+  def resolve?
+    update?
+  end
+
+  def reject?
+    update?
+  end
+
 end
