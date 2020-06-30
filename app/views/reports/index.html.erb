@@ -29,6 +29,7 @@
   <div id="list" class="tab-pane active">
     <div class="cards" data-controller="votes">
 
+
       <% @reports.sort_by { |r| r.total_votes}.reverse.each do |report|  %>
       <div class="report-card">
         <%= link_to report_path(report) do %>
@@ -51,7 +52,7 @@
               <h2><%= report.title%></h2>
               <p><i class="fas fa-map-marker-alt mr-1"></i><%= report.location.split(",").first%></p>
               <!-- <p><i class="far fa-calendar-alt mr-1"></i><%= ((DateTime.current.to_date - report.created_at.to_date) / 3600).round %> hours ago</p> -->
-              <p><i class="far fa-calendar-alt mr-1"></i><%= ((DateTime.current.to_date - report.created_at.to_date)).to_i %> days ago</p>
+              <p><i class="far fa-calendar-alt mr-1"></i><%= time_ago_in_words(report.created_at)%> ago</p>
               <% end %>
               <%= link_to report.category.name, reports_path(request.params.merge(category_id: report.category.id)), class: "pill-category" %>
             </div>
@@ -67,18 +68,17 @@
         </div>
       </div>
       <%end%>
+
+
+
+
+      <div id="map_container" class="tab-pane fade">
+        <div id="map"
+        style="width: 100%; height: 100vh;"
+        data-markers="<%= @markers.to_json %>"
+        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div>
     </div>
   </div>
-
-
-
-  <div id="map_container" class="tab-pane fade">
-    <div id="map"
-    style="width: 100%; height: 100vh;"
-    data-markers="<%= @markers.to_json %>"
-    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-  </div>
-</div>
-</div>
 
 
