@@ -1,7 +1,7 @@
 class ReportPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.all
+      scope.pending
     end
   end
   def create?
