@@ -38,7 +38,7 @@
   <h4>Popular reports</h4>
 
   <div class="cards">
-    <% @reports.sort_by { |r| r.total_votes}.reverse.each do |report|  %>
+    <% @reports.sort_by { |r| r.total_votes}.reverse.take(4).each do |report|  %>
       <%= link_to report_path(report) do %>
         <div class="home-card">
          <% if report.photo.attached? %>
