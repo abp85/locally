@@ -9,9 +9,11 @@
     <div class="browse">
       <h6>You can also search for existing reports:</h6>
       <%#= link_to 'Browse', reports_path, :class => "btn-home-secondary btn-secondary geocode" %>
-      <%= form_with url: reports_path, method: :get, local: true, class: "form-inline mt-3" do %>
+      <%= form_with url: reports_path, method: :get, local: true, class: "form-inline mt-3 d-flex justify-content-center" do %>
         <%= text_field_tag :query, "", class: "form-control w-45", placeholder: "Where are you?" %>
-        <%= submit_tag "Search", class: "btn-home-secondary btn-secondary" %>
+        <%= button_tag type: 'submit' , class: "search-button" do %>
+        <i class="fas fa-search" aria-hidden="true"></i>
+        <% end %>
       <% end %>
     </div>
 
