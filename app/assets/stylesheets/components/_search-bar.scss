@@ -1,4 +1,41 @@
-#reports-index .algolia-places,
-#pages-home .algolia-places {
-    width: 70%;
+.search-text {
+  /*border: 1px solid black;*/
+  border-radius: 50px 0 0 50px;
+  padding-right: 40px;
+  padding-left: 20px;
+  height: 50px;
+}
+
+.search-button {
+  border-radius: 0 50px 50px 0;
+  background-color: $locally-blue;
+  color: $locally-white;
+  border: 0;
+  padding: 5px 10px;
+  height: 50px;
+  width: 50px;
+  /*border: 1px solid black;*/
+  border-left: none;
+}
+
+#pages-home .algolia-places,
+#reports-index .algolia-places {
+  width: 80%;
+}
+
+.ap-icon-pin {
+  display: none;
+}
+
+#pages-home .form-control,
+#reports-index .form-control {
+  border-right: none;
+  box-shadow: none;
+}
+
+#pages-home .form-control:focus,
+#reports-index .form-control:focus {
+  border: 1px solid $locally-blue;
+  border-right: none;
+  box-shadow: none;
 }
