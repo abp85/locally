@@ -44,7 +44,11 @@
             </div>
           </div>
           <div class="upvotes-buttons" data-controller="status">
+            <% if report.pending? %>
                 <i class="far fa-check-square" data-action="click->status#resolve" data-report-id="<%= report.id %>" id="resolve-<%= report.id %>"></i>
+            <% else %>
+                <i class="fas fa-check-square" data-action="click->status#resolve" data-report-id="<%= report.id %>" id="resolve-<%= report.id %>"></i>
+            <% end %>
                 <!-- <i class="far fa-times-circle" data-action="click->status#reject" data-report-id="<%= report.id %>"></i> -->
           </div>
         </div>
