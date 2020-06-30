@@ -1,6 +1,6 @@
 class ReportsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
-  before_action :set_report, only: [:show, :edit, :update, :upvote, :downvote]
+  before_action :set_report, only: [:show, :upvote, :downvote, :reject, :resolve]
 
   def index
     @reports = policy_scope(Report)
@@ -102,6 +102,23 @@ class ReportsController < ApplicationController
       format.json { render json: { count: @report.total_votes } }
     end
   end
+
+  def resolve
+    authorize @report
+    if @report.pending?
+      @report.status = :resolved
+    else
+      @report.status = :pending
+    end
+
+    @report.save
+
+    respond_to do |format|
+      format.html { redirect_to profile_path }
+      format.json { render json: { status: @report.status } }
+    end
+  end
+
 
   private
 
