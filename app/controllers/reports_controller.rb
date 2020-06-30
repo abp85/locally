@@ -99,7 +99,7 @@ class ReportsController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to report_path(@report) }
-      format.json { render json: { count: @report.total_votes } }
+      format.json { render json: { count: @report.total_votes, vote: @vote.value } }
     end
   end
 
