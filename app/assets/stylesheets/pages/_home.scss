@@ -130,7 +130,7 @@ h4 {
   font-size: 14px;
   text-align: center;
   width: fit-content;
-  height: 50px;
+  height: 45px;
   text-align: center;
   padding: 5px 7px;
   border-radius: $border-radius;
@@ -140,5 +140,6 @@ h4 {
   }
   .vote-count p {
     color: $locally-white;
+    font-size: 10px;
   }
 }
