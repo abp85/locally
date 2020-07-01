@@ -1,0 +1,15 @@
+.pill-status-open {
+  padding: 1px 11px;
+  border-radius: 20px;
+  color: #d7ab0c !important;
+  transition: background 0.3s ease;
+  text-decoration: none;
+  width: fit-content;
+  background-color: #fdf4d4;
+  font-size: 13px !important;
+  margin-top: 7px;
+  &:hover {
+  text-decoration: none;
+  }
+}
+
