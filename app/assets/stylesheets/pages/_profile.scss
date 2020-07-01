@@ -13,15 +13,29 @@
   text-align: center;
   border-radius: 50%;
   }
-  .initials {
-  position: absolute;
-  top: 25px; /* 25% of parent */
-  left: 25px;
-  font-size: 50px; /* 50% of parent */
-  line-height: 50px; /* 50% of parent */
-  color: white;
-  font-weight: 600;
+  // .initials {
+  // position: absolute;
+  // top: 25px; /* 25% of parent */
+  // left: 25px;
+  // font-size: 50px; /* 50% of parent */
+  // line-height: 50px; /* 50% of parent */
+  // color: white;
+  // font-weight: 600;
+
+// Nico fix for the positioning
+.initials {
+    height: 100px;
+    width: 100px;
+    position: absolute;
+    left: 50%;
+    margin-left: -50px;
+    top: 25px;
+    font-size: 50px;
+    line-height: 50px;
+    color: white;
+    font-weight: 600;
   }
+
   p {
     margin: 0;
   }
@@ -32,3 +46,5 @@
     }
   }
 }
+
+
