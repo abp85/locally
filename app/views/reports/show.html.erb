@@ -39,7 +39,7 @@
 </div>
 
 <div class="d-flex justify-content-between back-link-color" data-controller="votes">
-  <%= link_to reports_path, class: "text-blue" do %>
+  <%= link_to reports_path(query: session[:current_user_location], category_id: session[:category]), class: "text-blue" do %>
   <i class="fas fa-angle-left mr-2 mb-3"></i><em>Back</em>
   <% end %>
   <div class="upvotes-buttons upvotes-position-show">

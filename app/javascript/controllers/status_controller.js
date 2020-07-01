@@ -14,19 +14,28 @@ export default class extends Controller {
         const card = document.getElementById(`report-${target.dataset.reportId}`);
         const openedCont = document.getElementById(`opened`);
         const solvedCont = document.getElementById(`solved`);
-
+        const cardNotif = document.getElementById(`card-notification`);
         console.log(card)
         if (data.status === 'resolved'){
           // button.className = 'fas fa-check-square';
           openedCont.removeChild(card);
           solvedCont.insertAdjacentElement(`afterbegin`, card)
           button.innerHTML = "Mark as open"
+          cardNotif.innerHTML = "Moved to Solved"
         } else {
           // button.className = 'far fa-check-square';
           solvedCont.removeChild(card);
           openedCont.insertAdjacentElement(`afterbegin`, card)
           button.innerHTML = "Mark as solved"
+          cardNotif.innerHTML = "Moved to Open"
         }
+        setTimeout(() => {
+          cardNotif.style.opacity = 0
+        }, 4000)
+        setTimeout(() => {
+          cardNotif.innerHTML = ""
+          cardNotif.style.opacity = 1
+        }, 5000)
       });
   }
 
