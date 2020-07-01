@@ -13,7 +13,7 @@
 
 <div class="container d-flex">
   <% if params[:query].present? %>
-    <%= link_to params[:query], reports_path(request.params.except(:query)), class: "pill-category search" %>
+    <%= link_to params[:query].truncate(25, separator: ',', omission: ''), reports_path(request.params.except(:query)), class: "pill-category search" %>
   <% end %>
   <% if params[:category_id].present? %>
     <%= link_to @reports.first.category.name, reports_path(request.params.except(:category_id)), class: "pill-category search" %>
