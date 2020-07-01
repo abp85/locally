@@ -85,6 +85,7 @@
               <%= link_to report.category.name, reports_path(request.params.merge(category_id: report.category.id)), class: "pill-category" %>
             </div>
           </div>
+
           <div class="upvotes-buttons" data-controller="status">
             <% if report.pending? %>
             <i class="far fa-check-square" data-action="click->status#resolve" data-report-id="<%= report.id %>" id="resolve-<%= report.id %>"></i>
@@ -97,6 +98,7 @@
       </div>
       <% end %>
   </div>
+
 <!--
  <div class="cards">
     <% @user.reports.each do |report|  %>
