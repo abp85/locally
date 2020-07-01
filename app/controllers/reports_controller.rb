@@ -118,7 +118,7 @@ class ReportsController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to profile_path }
-      format.json { render json: { status: @report.status } }
+      format.json { render json: { status: @report.status, user_open_reports: current_user.reports.pending.length, user_solved_reports: current_user.reports.resolved.length } }
     end
   end
 

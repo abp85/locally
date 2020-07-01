@@ -12,8 +12,9 @@
 <br>
 
 <h3 class="your-reports">Your reports</h3>
-  <div id="card-notification" style="transition: opacity 1s cubic-bezier(0.6, -0.28, 0.74, 0.05) 0s; position: absolute; height: 50px; background: red;">
-
+  <div class="pill-category" id="card-notification" >
+<!-- style="transition: opacity 1s cubic-bezier(0.6, -0.28, 0.74, 0.05) 0s; position: absolute; height: 50px; background: red;">
+ -->
   </div>
 <ul class="nav report-tab">
   <li><a class="active" data-toggle="tab" href="#open">Open</a></li>
@@ -21,8 +22,9 @@
 </ul>
 
 <div class="tab-content">
+
   <div id="open" class="tab-pane active">
-    <p class="open-reports"> Open Reports: <%= @user.reports.pending.length %></p>
+    <p class="open-reports" id="open-reports"> Open Reports: <%= @user.reports.pending.length %></p>
     <div class="cards" id="opened">
       <% @user.reports.pending.each do |report|  %>
       <div class="profile-card" id ="report-<%= report.id %>">
@@ -61,7 +63,7 @@
   </div>
 
   <div id="solved_container" class="tab-pane fade">
-    <p class="open-reports"> Solved Reports: <%= @user.reports.resolved.length %></p>
+    <p class="open-reports" id="solved-reports"> Solved Reports: <%= @user.reports.resolved.length %></p>
     <div class="cards" id="solved">
        <% @user.reports.resolved.each do |report|  %>
       <div class="profile-card" id ="report-<%= report.id %>">
@@ -98,4 +100,8 @@
         </div>
       </div>
       <% end %>
+    </div>
   </div>
+
+</div>
+
