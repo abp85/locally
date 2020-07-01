@@ -116,3 +116,29 @@ h4 {
 
 }
 
+
+#pages-home .report-card {
+  position: relative;
+  .vote-count {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background-color: $locally-blue;
+  color: $locally-white;
+  padding: 2px 6px;
+  border-radius: 5px;
+  font-size: 14px;
+  text-align: center;
+  width: fit-content;
+  height: 50px;
+  text-align: center;
+  padding: 5px 7px;
+  border-radius: $border-radius;
+  }
+    span {
+    font-size: 16px;
+  }
+  .vote-count p {
+    color: $locally-white;
+  }
+}
