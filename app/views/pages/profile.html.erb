@@ -23,7 +23,7 @@
   <div id="open" class="tab-pane active">
     <div class="cards" id="opened">
       <% @user.reports.pending.each do |report|  %>
-      <div class="report-card" id ="report-<%= report.id %>">
+      <div class="profile-card" id ="report-<%= report.id %>">
         <%= link_to report_path(report) do %>
         <div class="img-votes">
           <% if report.photo.attached? %>
@@ -37,7 +37,7 @@
           </div>
         </div>
         <% end %>
-        <div class="report-card-info">
+        <div class="profile-card-info">
           <div class="report-text">
             <div>
               <%= link_to report_path(report) do %>
@@ -45,11 +45,11 @@
               <p><i class="fas fa-map-marker-alt mr-1"></i><%= report.location.split(",").first%></p>
               <p><i class="far fa-calendar-alt mr-1"></i><%= time_ago_in_words(report.created_at) %> days ago</p>
               <% end %>
-              <%= link_to report.category.name, reports_path(request.params.merge(category_id: report.category.id)), class: "pill-category" %>
+              <p class="pill-status-open"  data-action="click->status#changestatus" data-report-id="<%= report.id %>" id="changestatus-<%= report.id %>">pending</p>
             </div>
           </div>
           <div class="upvotes-buttons" data-controller="status">
-            <button class="btn-home-secondary btn-secondary" data-action="click->status#resolve" data-report-id="<%= report.id %>" id="resolve-<%= report.id %>">Mark as solved</button>
+            <button class="btn-status" data-action="click->status#resolve" data-report-id="<%= report.id %>" id="resolve-<%= report.id %>">Mark as solved</button>
             <!-- <i class="far fa-check-square" data-action="click->status#resolve" data-report-id="<%= report.id %>" id="resolve-<%= report.id %>"></i> -->
           </div>
         </div>
@@ -61,7 +61,7 @@
   <div id="solved_container" class="tab-pane fade">
     <div class="cards" id="solved">
        <% @user.reports.resolved.each do |report|  %>
-      <div class="report-card" id ="report-<%= report.id %>">
+      <div class="profile-card" id ="report-<%= report.id %>">
         <%= link_to report_path(report) do %>
         <div class="img-votes">
           <% if report.photo.attached? %>
@@ -75,7 +75,7 @@
           </div>
         </div>
         <% end %>
-        <div class="report-card-info">
+        <div class="profile-card-info">
           <div class="report-text">
             <div>
               <%= link_to report_path(report) do %>
@@ -83,12 +83,12 @@
               <p><i class="fas fa-map-marker-alt mr-1"></i><%= report.location.split(",").first%></p>
               <p><i class="far fa-calendar-alt mr-1"></i><%= time_ago_in_words(report.created_at) %> days ago</p>
               <% end %>
-              <%= link_to report.category.name, reports_path(request.params.merge(category_id: report.category.id)), class: "pill-category" %>
+              <p class="pill-status-solved" data-action="click->status#changestatus" data-report-id="<%= report.id %>" id="changestatus-<%= report.id %>">solved</p>
             </div>
           </div>
 
           <div class="upvotes-buttons" data-controller="status">
-            <button class="btn-home-secondary btn-secondary" data-action="click->status#resolve" data-report-id="<%= report.id %>" id="resolve-<%= report.id %>">Mark as open</button>
+            <button class="btn-status" data-action="click->status#resolve" data-report-id="<%= report.id %>" id="resolve-<%= report.id %>">Mark as open</button>
             <!-- <i class="fas fa-check-square" data-action="click->status#resolve" data-report-id="<%= report.id %>" id="resolve-<%= report.id %>"></i> -->
 
           </div>

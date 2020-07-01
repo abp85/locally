@@ -12,6 +12,7 @@ export default class extends Controller {
           console.log(data)
         const button = document.getElementById(`resolve-${target.dataset.reportId}`);
         const card = document.getElementById(`report-${target.dataset.reportId}`);
+        const pill = document.getElementById(`changestatus-${target.dataset.reportId}`);
         const openedCont = document.getElementById(`opened`);
         const solvedCont = document.getElementById(`solved`);
 
@@ -21,11 +22,15 @@ export default class extends Controller {
           openedCont.removeChild(card);
           solvedCont.insertAdjacentElement(`afterbegin`, card)
           button.innerHTML = "Mark as open"
+          pill.className = "pill-status-solved"
+          pill.innerHTML = "solved"
         } else {
           // button.className = 'far fa-check-square';
           solvedCont.removeChild(card);
           openedCont.insertAdjacentElement(`afterbegin`, card)
           button.innerHTML = "Mark as solved"
+          pill.className = "pill-status-open"
+          pill.innerHTML = "pending"
         }
       });
   }
