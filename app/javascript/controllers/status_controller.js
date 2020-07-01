@@ -15,7 +15,7 @@ export default class extends Controller {
         const pill = document.getElementById(`changestatus-${target.dataset.reportId}`);
         const openedCont = document.getElementById(`opened`);
         const solvedCont = document.getElementById(`solved`);
-
+        const cardNotif = document.getElementById(`card-notification`);
         console.log(card)
         if (data.status === 'resolved'){
           // button.className = 'fas fa-check-square';
@@ -24,6 +24,7 @@ export default class extends Controller {
           button.innerHTML = "Mark as open"
           pill.className = "pill-status-solved"
           pill.innerHTML = "solved"
+          cardNotif.innerHTML = "Moved to Solved"
         } else {
           // button.className = 'far fa-check-square';
           solvedCont.removeChild(card);
@@ -31,7 +32,15 @@ export default class extends Controller {
           button.innerHTML = "Mark as solved"
           pill.className = "pill-status-open"
           pill.innerHTML = "pending"
+          cardNotif.innerHTML = "Moved to Open"
         }
+        setTimeout(() => {
+          cardNotif.style.opacity = 0
+        }, 4000)
+        setTimeout(() => {
+          cardNotif.innerHTML = ""
+          cardNotif.style.opacity = 1
+        }, 5000)
       });
   }
 
