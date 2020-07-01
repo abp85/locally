@@ -16,7 +16,9 @@ export default class extends Controller {
         const openedCont = document.getElementById(`opened`);
         const solvedCont = document.getElementById(`solved`);
         const cardNotif = document.getElementById(`card-notification`);
-        console.log(card)
+        const openReports = document.getElementById('open-reports');
+        const solvedReports = document.getElementById('solved-reports');
+
         if (data.status === 'resolved'){
           // button.className = 'fas fa-check-square';
           openedCont.removeChild(card);
@@ -34,6 +36,10 @@ export default class extends Controller {
           pill.innerHTML = "pending"
           cardNotif.innerHTML = "Moved to Open"
         }
+
+        openReports.innerHTML = `Open Reports: ${data.user_open_reports}`
+        solvedReports.innerHTML = `Solved Reports: ${data.user_solved_reports}`
+
         setTimeout(() => {
           cardNotif.style.opacity = 0
         }, 4000)
