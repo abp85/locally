@@ -35,5 +35,9 @@ const initMapbox = () => {
   }
 };
 
+
+// disable map zoom when using scroll
+// map.scrollZoom.disable();
+
 export { initMapbox };
 
