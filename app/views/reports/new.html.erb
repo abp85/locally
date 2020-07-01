@@ -7,6 +7,8 @@
   <%= f.input :description, as: :text, :label => "Describe what is happening" %>
   <%= f.input :location, :label => "Where is it located?" %>
   <%= f.association :category, prompt: 'Choose a category', :label => "Which is the category?"%>
-  <%= f.button :submit, 'Post', class: "btn-primary" %>
-  <%= link_to "Cancel", root_path, class: "btn btn-secondary" %>
+  <div class="d-flex forms-buttons">
+  <%= link_to "Cancel", root_path, class: "btn-secondary" %>
+  <%= f.button :submit, 'Post', class: "btn btn-primary" %>
+  </div>
 <%end%>

@@ -32,12 +32,13 @@ const initMapbox = () => {
         .addTo(map);
     });
     fitMapToMarkers(map, markers);
+    map.scrollZoom.disable();
   }
+
 };
 
 
 // disable map zoom when using scroll
-// map.scrollZoom.disable();
 
 export { initMapbox };
 
