@@ -37,36 +37,38 @@
 
 <h4>Popular reports</h4>
 
-<div class="cards">
-  <% @reports.sort_by { |r| r.total_votes}.reverse.take(4).each do |report|  %>
-  <%= link_to report_path(report) do %>
-  <div class="home-card">
-   <% if report.photo.attached? %>
-   <%= cl_image_tag report.photo.key  %>
-   <% else %>
-   <img src="https://www.rd.com/wp-content/uploads/2019/04/mai-khao-beach-phuket-thailand-june-222018-dirty-beach-along-the-shoreline.jpg">
-   <% end %>
-   <div class="home-card-info">
-     <div class="home-text">
-      <div>
-        <h2><%= report.title.capitalize%></h2>
-        <p><i class="fas fa-map-marker-alt mr-2"></i><%= report.location.split(",").first%></p>
-        <%= link_to report.category.name, reports_path(category_id: report.category_id), class: "pill-category" %>
-        <!-- <a href="#" class="pill-category"><%= report.category.name %></a> -->
+<div class="cards" data-controller="votes">
+      <% @reports.sort_by { |r| r.total_votes}.reverse.take(4).each do |report|  %>
+      <div class="report-card">
+        <%= link_to report_path(report) do %>
+        <div class="img-votes">
+          <% if report.photo.attached? %>
+          <%= cl_image_tag report.photo.key  %>
+          <% else %>
+          <img src="https://www.rd.com/wp-content/uploads/2019/04/mai-khao-beach-phuket-thailand-june-222018-dirty-beach-along-the-shoreline.jpg">
+          <% end %>
+        </div>
+          <div class="vote-count">
+            <span class="line-height " id="vote-<%= report.id %>"><%= report.total_votes %></span>
+            <p>VOTES</p>
+          </div>
+        <% end %>
+        <div class="report-card-info">
+          <div class="report-text">
+            <div>
+              <%= link_to report_path(report) do %>
+              <h2><%= report.title%></h2>
+              <p><i class="fas fa-map-marker-alt mr-1"></i><%= report.location.split(",").first%></p>
+              <!-- <p><i class="far fa-calendar-alt mr-1"></i><%= ((DateTime.current.to_date - report.created_at.to_date) / 3600).round %> hours ago</p> -->
+              <p><i class="far fa-calendar-alt mr-1"></i><%= time_ago_in_words(report.created_at)%> ago</p>
+              <% end %>
+              <%= link_to report.category.name, reports_path(request.params.merge(category_id: report.category.id)), class: "pill-category" %>
+            </div>
+          </div>
+
+        </div>
       </div>
-    </div>
-  </div>
-  <div class="upvotes-info mr-3">
-    <span class="line-height"><%= report.total_votes %></span>
-    <% if report.total_votes == 1 %>
-    <p>vote</p>
-    <% else %>
-    <p>votes</p>
-    <% end %>
-  </div>
-</div>
-<% end %>
-<% end %>
+      <% end %>
 </div>
 <h4>Reports in your area</h4>
 
