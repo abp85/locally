@@ -43,8 +43,21 @@
   <i class="fas fa-angle-left mr-2 mb-3"></i><em>Back</em>
   <% end %>
   <div class="upvotes-buttons upvotes-position-show">
-    <i class="fas fa-thumbs-up <%= 'thumbs-inactive' unless current_user && @report.has_upvoted(current_user) %> " data-action="click->votes#upVote" data-report-id="<%= @report.id %>" id="thumbup-<%= @report.id %>" ></i>
-    <i class="fas fa-thumbs-down <%= 'thumbs-inactive' unless current_user && @report.has_downvoted(current_user) %> " data-action="click->votes#downVote" data-report-id="<%= @report.id %>" id="thumbdown-<%= @report.id %>" ></i>
+
+  <% if current_user %>
+      <i class="fas fa-thumbs-up <%= 'thumbs-inactive' unless current_user && @report.has_upvoted(current_user) %> " data-action="click->votes#upVote" data-report-id="<%= @report.id %>" id="thumbup-<%= @report.id %>" ></i>
+      <i class="fas fa-thumbs-down <%= 'thumbs-inactive' unless current_user && @report.has_downvoted(current_user) %> " data-action="click->votes#downVote" data-report-id="<%= @report.id %>" id="thumbdown-<%= @report.id %>" ></i>
+  <% else %>
+    <%= link_to upvote_report_path(@report) do %>
+      <i class="fas fa-thumbs-up <%= 'thumbs-inactive' unless current_user && @report.has_upvoted(current_user) %>"></i>
+    <% end %>
+    <%= link_to downvote_report_path(@report) do %>
+      <i class="fas fa-thumbs-down <%= 'thumbs-inactive' unless current_user && @report.has_downvoted(current_user) %>"></i>
+    <% end %>
+  <% end %>
+
+    <!-- <i class="fas fa-thumbs-up <%= 'thumbs-inactive' unless current_user && @report.has_upvoted(current_user) %> " data-action="click->votes#upVote" data-report-id="<%= @report.id %>" id="thumbup-<%= @report.id %>" ></i>
+    <i class="fas fa-thumbs-down <%= 'thumbs-inactive' unless current_user && @report.has_downvoted(current_user) %> " data-action="click->votes#downVote" data-report-id="<%= @report.id %>" id="thumbdown-<%= @report.id %>" ></i> -->
   </div>
 </div>
 
