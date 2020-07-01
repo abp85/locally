@@ -8,18 +8,22 @@
     <p><i class="far fa-edit edit-profile"></i> <%= link_to "Edit your profile", edit_user_registration_path, class:"edit-profile" %></p>
   </div>
 </div>
+
 <br>
 <br>
+
 <h3>Your reports</h3>
 <ul class="nav report-tab">
   <li><a class="active" data-toggle="tab" href="#open">Open</a></li>
   <li><a data-toggle="tab" href="#solved_container">Solved</a></li>
 </ul>
+
 <div class="tab-content">
+
   <div id="open" class="tab-pane active">
-    <div class="cards" data-controller="votes">
-      <% @user.reports.each do |report|  %>
-      <div class="report-card">
+    <div class="cards" id="opened">
+      <% @user.reports.pending.each do |report|  %>
+      <div class="report-card" id ="report-<%= report.id %>">
         <%= link_to report_path(report) do %>
         <div class="img-votes">
           <% if report.photo.attached? %>
@@ -45,21 +49,19 @@
             </div>
           </div>
           <div class="upvotes-buttons" data-controller="status">
-            <% if report.pending? %>
-            <i class="far fa-check-square" data-action="click->status#resolve" data-report-id="<%= report.id %>" id="resolve-<%= report.id %>"></i>
-            <% else %>
-            <i class="fas fa-check-square" data-action="click->status#resolve" data-report-id="<%= report.id %>" id="resolve-<%= report.id %>"></i>
-            <% end %>
+            <button class="btn-home-secondary btn-secondary" data-action="click->status#resolve" data-report-id="<%= report.id %>" id="resolve-<%= report.id %>">Mark as solved</button>
+            <!-- <i class="far fa-check-square" data-action="click->status#resolve" data-report-id="<%= report.id %>" id="resolve-<%= report.id %>"></i> -->
           </div>
         </div>
       </div>
       <% end %>
     </div>
   </div>
+
   <div id="solved_container" class="tab-pane fade">
-    <div id="solved">
-       <% @user.reports.each do |report|  %>
-      <div class="report-card">
+    <div class="cards" id="solved">
+       <% @user.reports.resolved.each do |report|  %>
+      <div class="report-card" id ="report-<%= report.id %>">
         <%= link_to report_path(report) do %>
         <div class="img-votes">
           <% if report.photo.attached? %>
@@ -86,11 +88,9 @@
           </div>
 
           <div class="upvotes-buttons" data-controller="status">
-            <% if report.pending? %>
-            <i class="far fa-check-square" data-action="click->status#resolve" data-report-id="<%= report.id %>" id="resolve-<%= report.id %>"></i>
-            <% else %>
-            <i class="fas fa-check-square" data-action="click->status#resolve" data-report-id="<%= report.id %>" id="resolve-<%= report.id %>"></i>
-            <% end %>
+            <button class="btn-home-secondary btn-secondary" data-action="click->status#resolve" data-report-id="<%= report.id %>" id="resolve-<%= report.id %>">Mark as open</button>
+            <!-- <i class="fas fa-check-square" data-action="click->status#resolve" data-report-id="<%= report.id %>" id="resolve-<%= report.id %>"></i> -->
+
           </div>
         </div>
       </div>
