@@ -43,18 +43,21 @@
               <%= link_to report.category.name, reports_path(request.params.merge(category_id: report.category.id)), class: "pill-category" %>
             </div>
           </div>
-          <div class="upvotes-buttons" data-controller="status">
-            <% if report.pending? %>
-                <i class="far fa-check-square" data-action="click->status#resolve" data-report-id="<%= report.id %>" id="resolve-<%= report.id %>"></i>
-            <% else %>
-                <i class="fas fa-check-square" data-action="click->status#resolve" data-report-id="<%= report.id %>" id="resolve-<%= report.id %>"></i>
-            <% end %>
-                <!-- <i class="far fa-times-circle" data-action="click->status#reject" data-report-id="<%= report.id %>"></i> -->
+          <div class="upvotes-buttons">
+            <%= link_to upvote_report_path(report) do %>
+              <i class="fas fa-thumbs-up"></i>
+            <%end%>
+            <%= link_to downvote_report_path(report) do %>
+              <i class="fas fa-thumbs-down"></i>
+            <%end%>
           </div>
         </div>
       </div>
-  <% end %>
+  <%end%>
 </div>
+
+
+
 
 <!--
  <div class="cards">
