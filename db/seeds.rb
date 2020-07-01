@@ -24,7 +24,7 @@ User.create(first_name: "Francesco", last_name: "Biedermann", email: "francesco@
 
 p "Nico's cat is creating Categories..."
 
-catValue = ["Parks & public spaces", "Waterworks", "Electricity", "Infrastructure", "Healthcare", "Education", "Transportation" , "Police", "Waste", "Noise"]
+catValue = ["Public spaces", "Waterworks", "Electricity", "Infrastructure", "Healthcare", "Education", "Transportation" , "Police", "Waste", "Noise"]
 catValPos = 0
 catValue.count.times do
   Category.create(name: "#{catValue[catValPos]}")
