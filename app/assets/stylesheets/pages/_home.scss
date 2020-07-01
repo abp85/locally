@@ -1,7 +1,25 @@
+.landing-header h1 {
+  color: $locally-blue;
+}
+
+.landing-header h2 {
+  font-weight: 200;
+}
+
+
+.landing-header h1,
+.landing-header h2 {
+  text-align: center;
+}
+
+
 .home-banner {
   background-size: contain;
   height: 400px;
   background-repeat: no-repeat;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
 }
 
 .landing-header {
@@ -25,8 +43,8 @@
   margin-top: 50px;
   text-align: center;
 
-  h2 {
-  border-bottom: 4px solid #DE4C78;
+  h3 {
+  border-bottom: 4px solid $locally-blue;
   font-weight: 450;
   margin: 0 auto;
   width: 100px;
@@ -54,7 +72,6 @@
 .btn-home-primary {
   display: block;
   width: fit-content;
-  margin: 210px auto;
 }
 
 .img-map {
@@ -85,6 +102,17 @@ h4 {
   padding-top: 35px;
   font-weight: 300;
   font-size: 22px;
+  text-align: center;
 }
 
+.social-links a {
+  color: $locally-blue;
+  font-size: 25px;
+  padding: 0 5px;
+
+  &:hover {
+    opacity: 0.7;
+  }
+
+}
 
