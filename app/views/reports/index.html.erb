@@ -1,84 +1,79 @@
 
-  <h1>Reports in your area</h1>
+<h1>Reports in your area</h1>
 
-  <div class="browse">
+<div class="browse">
   <%= form_with url: reports_path, method: :get, local: true, class: "form-inline mt-3 d-flex justify-content-center" do %>
-      <%= text_field_tag :query, "", class: "form-control w-45 search-text", placeholder: "Address" %>
-      <%= button_tag type: 'submit' , class: "search-button" do %>
-        <i class="fas fa-search" aria-hidden="true"></i>
-        <% end %>
+  <%= text_field_tag :query, "", class: "form-control w-45 search-text", placeholder: "Address" %>
+  <%= button_tag type: 'submit' , class: "search-button" do %>
+  <i class="fas fa-search" aria-hidden="true"></i>
   <% end %>
-  </div>
+  <% end %>
+</div>
 
 
-  <div class="container d-flex">
-    <% if params[:query].present? %>
-      <%= link_to params[:query], reports_path(request.params.except(:query)), class: "pill-category" %>
-    <% end %>
-    <% if params[:category_id].present? %>
-      <%= link_to @reports.first.category.name, reports_path(request.params.except(:category_id)), class: "pill-category" %>
-    <% end %>
+<div class="container d-flex">
+  <% if params[:query].present? %>
+  <%= link_to params[:query], reports_path(request.params.except(:query)), class: "pill-category" %>
+  <% if params[:category_id].present? %>
+  <% end %>
+  <%= link_to @reports.first.category.name, reports_path(request.params.except(:category_id)), class: "pill-category" %>
+  <% end %>
+</div>
+
+<ul class="nav report-tab">
+  <li><a class="active" data-toggle="tab" href="#list">List</a></li>
+  <li><a data-toggle="tab" href="#map_container">Map</a></li>
+</ul>
+
+<div class="tab-content">
+  <div id="list" class="tab-pane active">
+    <div class="cards" data-controller="votes">
+      <% @reports.sort_by { |r| r.total_votes}.reverse.each do |report|  %>
+      <div class="report-card">
+        <%= link_to report_path(report) do %>
+        <div class="img-votes">
+          <% if report.photo.attached? %>
+          <%= cl_image_tag report.photo.key  %>
+          <% else %>
+          <img src="https://www.rd.com/wp-content/uploads/2019/04/mai-khao-beach-phuket-thailand-june-222018-dirty-beach-along-the-shoreline.jpg">
+          <% end %>
+          <div class="vote-count">
+            <span class="line-height " id="vote-<%= report.id %>"><%= report.total_votes %></span>
+            <p>VOTES</p>
+          </div>
+        </div>
+        <% end %>
+        <div class="report-card-info">
+          <div class="report-text">
+            <div>
+              <%= link_to report_path(report) do %>
+              <h2><%= report.title%></h2>
+              <p><i class="fas fa-map-marker-alt mr-1"></i><%= report.location.split(",").first%></p>
+              <!-- <p><i class="far fa-calendar-alt mr-1"></i><%= ((DateTime.current.to_date - report.created_at.to_date) / 3600).round %> hours ago</p> -->
+              <p><i class="far fa-calendar-alt mr-1"></i><%= time_ago_in_words(report.created_at)%> ago</p>
+              <% end %>
+              <%= link_to report.category.name, reports_path(request.params.merge(category_id: report.category.id)), class: "pill-category" %>
+            </div>
+          </div>
+          <div class="upvotes-buttons upvotes-position-index-card">
+            <%#= link_to upvote_report_path(report), remote: true do %>
+            <i class="fas fa-thumbs-up <%= 'thumbs-inactive' unless current_user && report.has_upvoted(current_user) %> " data-action="click->votes#upVote" data-report-id="<%= report.id %>" ></i>
+            <i class="fas fa-thumbs-down <%= 'thumbs-inactive' unless current_user && report.has_downvoted(current_user) %> " data-action="click->votes#downVote" data-report-id="<%= report.id %>" ></i>
+            <%# end %>
+            <%#= link_to downvote_report_path(report), remote: true do %>
+            <%#end%>
+          </div>
+        </div>
+      </div>
+      <% end %>
     </div>
-
-  <ul class="nav report-tab">
-    <li><a class="active" data-toggle="tab" href="#list">List</a></li>
-    <li><a data-toggle="tab" href="#map_container">Map</a></li>
-  </ul>
-
-  <div class="tab-content">
-
-    <div id="list" class="tab-pane active">
-
-      <div class="cards" data-controller="votes">
-
-          <% @reports.sort_by { |r| r.total_votes}.reverse.each do |report|  %>
-              <div class="report-card">
-                <%= link_to report_path(report) do %>
-                  <div class="img-votes">
-                    <% if report.photo.attached? %>
-                      <%= cl_image_tag report.photo.key  %>
-                    <% else %>
-                      <img src="https://www.rd.com/wp-content/uploads/2019/04/mai-khao-beach-phuket-thailand-june-222018-dirty-beach-along-the-shoreline.jpg">
-                    <% end %>
-                    <div class="vote-count">
-                      <span class="line-height " id="vote-<%= report.id %>"><%= report.total_votes %></span>
-                        <p>VOTES</p>
-                    </div>
-                  </div>
-                <% end %>
-                <div class="report-card-info">
-                  <div class="report-text">
-                    <div>
-                      <%= link_to report_path(report) do %>
-                        <h2><%= report.title%></h2>
-                        <p><i class="fas fa-map-marker-alt mr-1"></i><%= report.location.split(",").first%></p>
-                        <!-- <p><i class="far fa-calendar-alt mr-1"></i><%= ((DateTime.current.to_date - report.created_at.to_date) / 3600).round %> hours ago</p> -->
-                        <p><i class="far fa-calendar-alt mr-1"></i><%= time_ago_in_words(report.created_at)%> ago</p>
-                      <% end %>
-                      <%= link_to report.category.name, reports_path(request.params.merge(category_id: report.category.id)), class: "pill-category" %>
-                    </div>
-                  </div>
-                  <div class="upvotes-buttons upvotes-position-index-card">
-                    <%#= link_to upvote_report_path(report), remote: true do %>
-                    <i class="fas fa-thumbs-up <%= 'thumbs-inactive' unless current_user && report.has_upvoted(current_user) %> " data-action="click->votes#upVote" data-report-id="<%= report.id %>" ></i>
-                    <i class="fas fa-thumbs-down <%= 'thumbs-inactive' unless current_user && report.has_downvoted(current_user) %> " data-action="click->votes#downVote" data-report-id="<%= report.id %>" ></i>
-                    <%# end %>
-                    <%#= link_to downvote_report_path(report), remote: true do %>
-                    <%#end%>
-                  </div>
-                </div>
-              </div>
-          <%end%>
-        </div>
-      </div>
-
-
-
-      <div id="map_container" class="tab-pane fade">
-        <div id="map"
-             style="width: 100%; height: 100vh;"
-             data-markers="<%= @markers.to_json %>"
-             data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-        </div>
-      </div>
   </div>
+
+  <div id="map_container" class="tab-pane fade">
+    <div id="map"
+    style="width: 100%; height: 100vh;"
+    data-markers="<%= @markers.to_json %>"
+    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
+</div>
+</div>
