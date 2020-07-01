@@ -9,6 +9,9 @@ class ReportsController < ApplicationController
     # else
     #   @reports = Report.geocoded
     # end
+    session[:current_user_location] = params[:query]
+    session[:category] = params[:category_id]
+
     if params[:query].present?
       @reports = @reports.near(params[:query], 2)
     else
