@@ -31,14 +31,8 @@
           <div class="col-11 pr-2">
            <p><%= @report.description %></p>
          </div>
-         <div class="col-1 text-center">
-          <%#= link_to upvote_report_path(@report) do %>
-          <!-- <i class="fas fa-chevron-up"></i> -->
-          <%# end %>
-          <%#= link_to downvote_report_path(@report) do %>
-          <!-- <i class="fas fa-chevron-down"></i> -->
-          <%# end %>
-        </div>
+        <!--  <div class="col-1 text-center">
+        </div> -->
       </div>
     </div>
   </div>
@@ -49,8 +43,8 @@
   <i class="fas fa-angle-left mr-2 mb-3"></i><em>Back</em>
   <% end %>
   <div class="upvotes-buttons upvotes-position-show">
-    <i class="fas fa-thumbs-up" data-action="click->votes#upVote" data-report-id="<%= @report.id %>"></i>
-    <i class="fas fa-thumbs-down mr-2" data-action="click->votes#downVote" data-report-id="<%= @report.id %>"></i>
+    <i class="fas fa-thumbs-up <%= 'thumbs-inactive' unless current_user && @report.has_upvoted(current_user) %> " data-action="click->votes#upVote" data-report-id="<%= @report.id %>" id="thumbup-<%= @report.id %>" ></i>
+    <i class="fas fa-thumbs-down <%= 'thumbs-inactive' unless current_user && @report.has_downvoted(current_user) %> " data-action="click->votes#downVote" data-report-id="<%= @report.id %>" id="thumbdown-<%= @report.id %>" ></i>
   </div>
 </div>
 

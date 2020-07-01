@@ -14,8 +14,8 @@
 <div class="container d-flex">
   <% if params[:query].present? %>
   <%= link_to params[:query], reports_path(request.params.except(:query)), class: "pill-category" %>
-  <% if params[:category_id].present? %>
   <% end %>
+  <% if params[:category_id].present? %>
   <%= link_to @reports.first.category.name, reports_path(request.params.except(:category_id)), class: "pill-category" %>
   <% end %>
 </div>
@@ -57,8 +57,8 @@
           </div>
           <div class="upvotes-buttons upvotes-position-index-card">
             <%#= link_to upvote_report_path(report), remote: true do %>
-            <i class="fas fa-thumbs-up <%= 'thumbs-inactive' unless current_user && report.has_upvoted(current_user) %> " data-action="click->votes#upVote" data-report-id="<%= report.id %>" ></i>
-            <i class="fas fa-thumbs-down <%= 'thumbs-inactive' unless current_user && report.has_downvoted(current_user) %> " data-action="click->votes#downVote" data-report-id="<%= report.id %>" ></i>
+            <i class="fas fa-thumbs-up <%= 'thumbs-inactive' unless current_user && report.has_upvoted(current_user) %> " data-action="click->votes#upVote" data-report-id="<%= report.id %>" id="thumbup-<%= report.id %>" ></i>
+            <i class="fas fa-thumbs-down <%= 'thumbs-inactive' unless current_user && report.has_downvoted(current_user) %> " data-action="click->votes#downVote" data-report-id="<%= report.id %>" id="thumbdown-<%= report.id %>" ></i>
             <%# end %>
             <%#= link_to downvote_report_path(report), remote: true do %>
             <%#end%>
