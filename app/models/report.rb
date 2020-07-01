@@ -36,4 +36,18 @@ class Report < ApplicationRecord
 
     return votes_count
   end
+
+  def has_upvoted(user)
+    vote = votes.find_by(user: user)
+    return false unless vote
+
+    return vote.value == "up"
+  end
+
+  def has_downvoted(user)
+    vote = votes.find_by(user: user)
+    return false unless vote
+
+    return vote.value == "down"
+  end
 end

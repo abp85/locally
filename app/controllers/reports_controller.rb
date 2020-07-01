@@ -10,13 +10,13 @@ class ReportsController < ApplicationController
     #   @reports = Report.geocoded
     # end
     if params[:query].present?
-      @reports = Report.near(params[:query], 2).pending
+      @reports = @reports.near(params[:query], 2)
     else
-      @reports = Report.geocoded.pending
+      @reports = @reports.geocoded
     end
 
     if params[:category_id].present?
-      @reports = @reports.where(category_id: params[:category_id]).pending
+      @reports = @reports.where(category_id: params[:category_id])
     end
 
     @markers = @reports.map do |report|
@@ -81,7 +81,7 @@ class ReportsController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to report_path(@report) }
-      format.json { render json: { count: @report.total_votes } }
+      format.json { render json: { count: @report.total_votes, vote: @vote.value } }
     end
   end
 
@@ -99,7 +99,7 @@ class ReportsController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to report_path(@report) }
-      format.json { render json: { count: @report.total_votes } }
+      format.json { render json: { count: @report.total_votes, vote: @vote.value } }
     end
   end
 
