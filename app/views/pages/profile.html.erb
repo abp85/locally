@@ -3,7 +3,6 @@
   <div class="user-info-text">
     <h5><%= @user.first_name %> <%= @user.last_name %></h5>
     <p>Member since: <%= @user.created_at.strftime('%b %d, %Y') %></p>
-    <p> Open Reports: <%= @user.reports.length %></p>
     <p> Solved Reports: <%= @user.reports.length %></p>
     <p><i class="far fa-edit edit-profile"></i> <%= link_to "Edit your profile", edit_user_registration_path, class:"edit-profile" %></p>
   </div>
@@ -22,6 +21,7 @@
 
   <div id="open" class="tab-pane active">
     <div class="cards" id="opened">
+      <p> Open Reports: <%= @user.reports.length %></p>
       <% @user.reports.pending.each do |report|  %>
       <div class="profile-card" id ="report-<%= report.id %>">
         <%= link_to report_path(report) do %>
