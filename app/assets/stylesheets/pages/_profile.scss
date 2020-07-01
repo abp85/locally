@@ -29,10 +29,22 @@
   }
   .edit-profile {
     color: $locally-blue;
+    font-size: 17px;
     .link {
      color: $locally-blue;
     }
   }
 }
+.open-reports {
+  font-weight: 300;
+  font-size: 18px;
+}
 
+.member-since {
+  font-size: 18px;
+}
 
+.user-name {
+  font-size: 22px;
+  margin-bottom: 5px;
+}
