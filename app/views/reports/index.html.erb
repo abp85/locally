@@ -14,8 +14,8 @@
 <div class="container d-flex">
   <% if params[:query].present? %>
   <%= link_to params[:query], reports_path(request.params.except(:query)), class: "pill-category" %>
-  <% end %>
   <% if params[:category_id].present? %>
+  <% end %>
   <%= link_to @reports.first.category.name, reports_path(request.params.except(:category_id)), class: "pill-category" %>
   <% end %>
 </div>
@@ -28,8 +28,6 @@
 <div class="tab-content">
   <div id="list" class="tab-pane active">
     <div class="cards" data-controller="votes">
-
-
       <% @reports.sort_by { |r| r.total_votes}.reverse.each do |report|  %>
       <div class="report-card">
         <%= link_to report_path(report) do %>
@@ -59,26 +57,26 @@
           </div>
           <div class="upvotes-buttons upvotes-position-index-card">
             <%#= link_to upvote_report_path(report), remote: true do %>
-            <i class="fas fa-thumbs-up" data-action="click->votes#upVote" data-report-id="<%= report.id %>"></i>
-            <%#end%>
+            <i class="fas fa-thumbs-up <%= 'thumbs-inactive' unless current_user && report.has_upvoted(current_user) %> " data-action="click->votes#upVote" data-report-id="<%= report.id %>" ></i>
+            <i class="fas fa-thumbs-down <%= 'thumbs-inactive' unless current_user && report.has_downvoted(current_user) %> " data-action="click->votes#downVote" data-report-id="<%= report.id %>" ></i>
+            <%# end %>
             <%#= link_to downvote_report_path(report), remote: true do %>
-            <i class="fas fa-thumbs-down" data-action="click->votes#downVote" data-report-id="<%= report.id %>"></i>
             <%#end%>
           </div>
         </div>
       </div>
-      <%end%>
-
-
-
-
-      <div id="map_container" class="tab-pane fade">
-        <div id="map"
-        style="width: 100%; height: 100vh;"
-        data-markers="<%= @markers.to_json %>"
-        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-      </div>
+      <% end %>
     </div>
   </div>
+  <div id="map_container" class="tab-pane fade">
+    <div id="map"
+    style="width: 100%; height: 100vh;"
+    data-markers="<%= @markers.to_json %>"
+    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
+</div>
+</div>
+
+
 
 
