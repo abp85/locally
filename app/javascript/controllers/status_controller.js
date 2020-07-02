@@ -44,8 +44,8 @@ export default class extends Controller {
           cardNotif.innerHTML = "Moved to Open"
         }
 
-        openReports.innerHTML = `Open Reports: ${data.user_open_reports}`
-        solvedReports.innerHTML = `Solved Reports: ${data.user_solved_reports}`
+        openReports.innerHTML = data.user_open_reports
+        solvedReports.innerHTML = data.user_solved_reports
 
         setTimeout(() => {
           cardNotif.style.opacity = 0
