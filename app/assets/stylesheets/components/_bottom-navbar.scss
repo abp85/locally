@@ -4,7 +4,7 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding: 7px 0;
+  padding: 4px 0;
   border-top: 1px solid #A1A1A1;
 
   .bottom-navbar-icon, a {
@@ -25,16 +25,15 @@
 }
 
 .plus-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 40px;
   height: 40px;
   border-radius: 50%;
   border: 2px solid $locally-blue;
   color: $locally-blue;
-  font-size: 30px !important;
-  display: block;
   font-weight: 700;
-  text-align: center;
-  line-height: 36px;
 }
 
 /*
