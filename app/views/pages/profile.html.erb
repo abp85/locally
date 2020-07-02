@@ -37,7 +37,7 @@
           <% end %>
           <div class="vote-count">
             <span class="line-height"><%= report.total_votes %></span>
-            <p>VOTES</p>
+            <p><%= 'vote'.pluralize(report.total_votes) %></p>
           </div>
         </div>
         <% end %>

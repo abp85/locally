@@ -52,6 +52,8 @@
   border-radius: 14px;
   }
   .vote-count {
+  width: 50px;
+  height: 50px;
   position: absolute;
   bottom: 4px;
   right: 4px;
@@ -71,6 +73,7 @@
     color: white;
     font-size: 8px;
     margin: 0;
+    text-transform: uppercase;
   }
   }
 }
