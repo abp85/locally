@@ -54,7 +54,7 @@ report = Report.create!(title:"Piles of trash", description: "The trash cans are
 report.photo.attach(io: file, filename: "trash.jpg", content_type: 'image/jpg')
 report.created_at = DateTime.now-9.days
 80.times do
-  Vote.create(value: "#{voteValue[0]}", user: User.all.sample, report: Report.find(3))
+  Vote.create(value: "#{voteValue[0]}", user: User.all.sample, report: Report.find(2))
 end
 report.save
 puts "4"
@@ -82,7 +82,7 @@ file = URI.open("https://www.clubbookers.com/wp-content/uploads/2017/05/Pacha-Ba
 report = Report.create!(title:"Noisy night club", description: "The opening of the Pacha night club has brought disturbing noise to the neighbourhood and it's impossible to get rest at the weekend. It should not be permitted in a residential area!", location: "Carrer dels Còdols 12, Barcelona", user: User.all.sample, category: Category.all[9], report_votes: 0)
 report.photo.attach(io: file, filename: "club.jpg", content_type: 'image/jpg')
 50.times do
-  Vote.create(value: "#{voteValue[0]}", user: User.all.sample, report: Report.find(8))
+  Vote.create(value: "#{voteValue[0]}", user: User.all.sample, report: Report.find(7))
 end
 report.created_at = DateTime.now-16.days
 report.save
@@ -101,8 +101,8 @@ puts "11"
 file = URI.open("https://live.staticflickr.com/4099/4774162801_ffb7d48383_b.jpg")
 report = Report.create!(title:"Parking situation", description: "The parking situation on Carrer de Verdi is terrible. It is close to impossible to find a spot to park. The city should construct more parking spaces!", location: "Carrer de Verdi 2, Barcelona", user: User.all.sample, category: Category.all[6], report_votes: 0)
 report.photo.attach(io: file, filename: "parking.jpg", content_type: 'image/jpg')
-50.times do
-  Vote.create(value: "#{voteValue[0]}", user: User.all.sample, report: Report.find(8))
+30.times do
+  Vote.create(value: "#{voteValue[0]}", user: User.all.sample, report: Report.find(10))
 end
 report.created_at = DateTime.now-8.days
 report.save
