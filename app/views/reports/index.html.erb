@@ -13,10 +13,14 @@
 
 <div class="container d-flex">
   <% if params[:query].present? %>
-    <%= link_to params[:query].truncate(25, separator: ',', omission: ''), reports_path(request.params.except(:query)), class: "pill-category search" %>
+    <%= link_to reports_path(request.params.except(:query)), class: "pill-category search" do %>
+      <i class="fas fa-map-marker-alt mr-1"></i><%=  params[:query].truncate(25, separator: ',', omission: '')%><span> | </span> <i class="fas fa-times"></i>
+    <% end %>
   <% end %>
   <% if params[:category_id].present? %>
-    <%= link_to @reports.first.category.name, reports_path(request.params.except(:category_id)), class: "pill-category search" %>
+    <%= link_to reports_path(request.params.except(:category_id)), class: "pill-category search" do %>
+      <%= @reports.first.category.name %><span> | </span> <i class="fas fa-times"></i>
+    <% end %>
   <% end %>
 </div>
 
