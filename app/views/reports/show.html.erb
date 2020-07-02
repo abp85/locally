@@ -16,7 +16,7 @@
 
         <div class="show-votes">
           <p class="mb-0" id="vote-<%= @report.id %>"><%= @report.total_votes %></p>
-          <p><%= 'vote'.pluralize(report.total_votes) %></p>
+          <p><%= 'vote'.pluralize(@report.total_votes) %></p>
 
         </div>
 

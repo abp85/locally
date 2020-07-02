@@ -108,7 +108,7 @@ report.created_at = DateTime.now-8.days
 report.save
 puts "12"
 file = URI.open("https://www.powermag.com/wp-content/uploads/2020/06/uniper-kraftwerk-datteln.jpg")
-report = Report.create!(title:"Power plant", description: "We are agains the construction of the Nuclear Power Plant on Carrer d'Astúries. It would make the neighbourhood unhabitable and we would be forced to move. Not mentioning the toxic radiation and noise that comes with it. Stop it now!!", location: "Carrer d'Astúries 4, Barcelona", user: User.all.sample, category: Category.all[3], report_votes: 0)
+report = Report.create!(title:"Power plant", description: "We are against the construction of the Nuclear Power Plant on Carrer d'Astúries. It would make the neighbourhood unhabitable and we would be forced to move. Not mentioning the toxic radiation and noise that comes with it. Stop it now!!", location: "Carrer d'Astúries 4, Barcelona", user: User.all.sample, category: Category.all[3], report_votes: 0)
 report.photo.attach(io: file, filename: "power-plant.jpg", content_type: 'image/jpg')
 report.created_at = DateTime.now-22.days
 report.save
