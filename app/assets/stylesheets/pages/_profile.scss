@@ -53,3 +53,25 @@
   text-align: center;
 }
 
+
+.reports-counter-circle {
+  width: 30px;
+  height: 30px;
+  border-radius: 50px;
+  color: $locally-white;
+  text-align: center;
+  background-color: $locally-blue;
+  display: inline-block;
+}
+
+#pages-profile .report-tab .active {
+  padding-bottom: 8px;
+}
+
+#pages-profile .cards {
+  margin-top: 25px;
+}
+
+#pages-profile .pill-category {
+  margin-top: 12px;
+}
