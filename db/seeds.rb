@@ -48,12 +48,6 @@ report = Report.create!(title:"Broken park bench", description: "This park bench
 report.photo.attach(io: file, filename: "park-bench.jpg", content_type: 'image/jpg')
 report.created_at = DateTime.now-30.days
 report.save
-puts "2"
-file = URI.open("https://images.theconversation.com/files/233448/original/file-20180824-149463-1hzm435.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=1200&h=900.0&fit=crop")
-report = Report.create!(title:"Dangerous pothole", description: "There is a dangerous pothole on Rambla del Raval that already lead to several accidents. It should be fixed as soon as possible!", location: "Rambla del Raval 4, Barcelona", user: User.all.sample, category: Category.all[3], report_votes: 0)
-report.photo.attach(io: file, filename: "pothole.jpg", content_type: 'image/jpg')
-report.created_at = DateTime.now-2.days
-report.save
 puts "3"
 file = URI.open("https://www.dailynews.com/wp-content/uploads/2018/06/TRASH-HAUL-street_trash_2_061618.jpg")
 report = Report.create!(title:"Piles of trash", description: "The trash cans are always full and never get emptied. It attracts rats and other animals and smells horrible! This has to change.", location: "Carrer de l'Hospital 46, Barcelona", user: User.all.sample, category: Category.all[8], report_votes: 0)
