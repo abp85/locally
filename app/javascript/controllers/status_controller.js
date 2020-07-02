@@ -15,12 +15,15 @@ export default class extends Controller {
         const pill = document.getElementById(`changestatus-${target.dataset.reportId}`);
         const openedCont = document.getElementById(`opened`);
         const solvedCont = document.getElementById(`solved`);
-        const cardNotif = document.getElementById(`card-notification`);
         const openReports = document.getElementById('open-reports');
         const solvedReports = document.getElementById('solved-reports');
-
+        let cardNotif
         if (data.status === 'resolved'){
+          cardNotif = document.getElementById(`card-notification-open`);
           // button.className = 'fas fa-check-square';
+          cardNotif.innerHTML = ""
+          cardNotif.style.opacity = 1
+          cardNotif.className = "pill-category"
           openedCont.removeChild(card);
           solvedCont.insertAdjacentElement(`afterbegin`, card)
           button.innerHTML = "Mark as open"
@@ -29,6 +32,10 @@ export default class extends Controller {
           cardNotif.innerHTML = "Moved to Solved"
         } else {
           // button.className = 'far fa-check-square';
+          cardNotif = document.getElementById(`card-notification-solved`);
+          cardNotif.innerHTML = ""
+          cardNotif.style.opacity = 1
+          cardNotif.className = "pill-category"
           solvedCont.removeChild(card);
           openedCont.insertAdjacentElement(`afterbegin`, card)
           button.innerHTML = "Mark as solved"
@@ -43,10 +50,8 @@ export default class extends Controller {
         setTimeout(() => {
           cardNotif.style.opacity = 0
         }, 4000)
-        setTimeout(() => {
-          cardNotif.innerHTML = ""
-          cardNotif.style.opacity = 1
-        }, 5000)
+        // setTimeout(() => {
+        // }, 5000)
       });
   }
 
