@@ -2,7 +2,7 @@
     <div class="avatar-circle"><span class="initials"><%= @user.first_name.chars.first%><%= @user.last_name.chars.first %></span></div>
     <div class="user-info-text">
       <h5 class="user-name"><%= @user.first_name %> <%= @user.last_name %></h5>
-      <p class="member-since">Member since: <%= @user.created_at.strftime('%b %d, %Y') %></p>
+      <p class="member-since">Member since: <%= @user.created_at.strftime('%b, %Y') %></p>
       <p><i class="far fa-edit edit-profile"></i> <%= link_to "Edit your profile", edit_user_registration_path, class:"edit-profile" %></p>
       <p><i class="fas fa-sign-out-alt edit-profile"></i> <%= link_to "Logout", destroy_user_session_path, class:"edit-profile", method: :delete %></p>
     </div>

@@ -1,12 +1,13 @@
 .pill-status-solved {
   padding: 1px 11px;
   border-radius: 20px;
-  color: #02b28d !important;
+  color: #01905a !important;
   transition: background 0.3s ease;
   text-decoration: none;
   width: fit-content;
-  background-color: #d6fff6;
+  background-color: rgba(4, 212, 131, 0.5);
   font-size: 13px !important;
+  font-weight: 400 !important;
   margin-top: 7px;
   &:hover {
   text-decoration: none;
