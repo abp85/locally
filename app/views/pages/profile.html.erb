@@ -55,7 +55,7 @@
                 <%= link_to report_path(report) do %>
                 <h2><%= report.title%></h2>
                 <p><i class="fas fa-map-marker-alt mr-1"></i><%= report.location.split(",").first%></p>
-                <p><i class="far fa-calendar-alt mr-1"></i><%= time_ago_in_words(report.created_at) %> days ago</p>
+                <p><i class="far fa-calendar-alt mr-1"></i><%= time_ago_in_words(report.created_at) %> ago</p>
                 <% end %>
                 <p class="pill-status-open"  data-action="click->status#changestatus" data-report-id="<%= report.id %>" id="changestatus-<%= report.id %>">pending</p>
               </div>
