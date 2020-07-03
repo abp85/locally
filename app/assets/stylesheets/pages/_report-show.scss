@@ -15,6 +15,12 @@
 
 
 .show-votes {
+  width: 60px !important;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   color: $locally-white;
   background-color: $locally-blue;
   width: fit-content;
@@ -25,12 +31,18 @@
   right: -8px;
   bottom: -10px;
 
-    span {
-    font-size: 16px;
+  span {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    font-weight: 500;
+    font-size: 18px;
   }
 
   p {
     font-weight: 700;
+    font-size: 16px;
+    color: white;
     text-transform: uppercase;
     margin-bottom: 0 !important;
   }
