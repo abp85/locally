@@ -15,11 +15,10 @@
         <% end %>
 
         <div class="show-votes">
-          <p class="mb-0" id="vote-<%= @report.id %>"><%= @report.total_votes %></p>
+          <span class="mb-0" id="vote-<%= @report.id %>"><%= @report.total_votes %></span>
           <p><%= 'vote'.pluralize(@report.total_votes) %></p>
 
         </div>
-
       </div>
 
       <div class="container">
