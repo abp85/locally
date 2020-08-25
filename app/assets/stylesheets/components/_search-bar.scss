@@ -4,7 +4,7 @@
   padding-right: 40px;
   padding-left: 20px;
   height: 50px;
-  width: 50vw;
+  width: 500px;
 }
 
 .search-button {
@@ -41,3 +41,11 @@
   justify-content: center;
 }
 
+@media (max-width: 576px) {
+  #pages-home .form-control,
+  #reports-index .form-control {
+  border-right: none;
+  box-shadow: none;
+  width: 250px;
+  }
+}
