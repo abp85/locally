@@ -4,7 +4,7 @@
   padding-right: 40px;
   padding-left: 20px;
   height: 50px;
-
+  width: 50vw;
 }
 
 .search-button {
@@ -15,14 +15,9 @@
   padding: 5px 10px;
   height: 50px;
   width: 50px;
-  /*border: 1px solid black;*/
   border-left: none;
 }
 
-#pages-home .algolia-places,
-#reports-index .algolia-places {
-  width: 80%;
-}
 
 .ap-icon-pin {
   display: none;
@@ -40,3 +35,9 @@
   border-right: none;
   box-shadow: none;
 }
+
+.flex-box {
+  display: flex !important;
+  justify-content: center;
+}
+
