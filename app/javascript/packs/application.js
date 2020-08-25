@@ -36,7 +36,7 @@ document.addEventListener('turbolinks:load', () => {
   // initSelect2();
   initMapbox();
   initGeocode();
-  // initAutocomplete();
+  initAutocomplete();
 });
 
 import "controllers"

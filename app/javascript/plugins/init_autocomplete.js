@@ -6,10 +6,10 @@ const initAutocomplete = () => {
     places({ container: addressInput });
   }
 
-  const searchInput = document.getElementById('query');
-  if (searchInput) {
-    places({ container: searchInput });
-  }
+  // const searchInput = document.getElementById('query');
+  // if (searchInput) {
+  //   places({ container: searchInput });
+  // }
 };
 
 export { initAutocomplete };
