@@ -1,0 +1,99 @@
+@media (min-width: 1200px) {
+  .mobile {
+    background: white;
+    box-shadow: 0 0 3em rgba(0,0,0,0.7);
+    height: 100%;
+    left: 50%;
+    max-height: 736px;
+    max-width: 414px;
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width: 100%;
+  }
+
+  .mobile-screen {
+    height: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    padding-top: 3em;
+    position: relative;
+    width: 100%;
+  }
+}
+
+@media (min-width: 992px) {
+  .mobile {
+    background: white;
+    box-shadow: 0 0 3em rgba(0,0,0,0.7);
+    height: 100%;
+    left: 50%;
+    max-height: 736px;
+    max-width: 414px;
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width: 100%;
+  }
+
+  .mobile-screen {
+    height: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    padding-top: 3em;
+    position: relative;
+    width: 100%;
+  }
+}
+
+@media (min-width: 768px) {
+  .mobile {
+    background: white;
+    box-shadow: 0 0 3em rgba(0,0,0,0.7);
+    height: 100%;
+    left: 50%;
+    max-height: 736px;
+    max-width: 414px;
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width: 100%;
+  }
+
+  .mobile-screen {
+    height: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    padding-top: 3em;
+    position: relative;
+    width: 100%;
+  }
+}
+
+@media (min-width: 576px) {
+  .mobile {
+    background: white;
+    box-shadow: 0 0 3em rgba(0,0,0,0.7);
+    height: 100%;
+    left: 50%;
+    max-height: 736px;
+    max-width: 414px;
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width: 100%;
+  }
+
+  .mobile-screen {
+    height: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    padding-top: 3em;
+    position: relative;
+    width: 100%;
+  }
+}
