@@ -3,7 +3,7 @@
 
 <div class="browse">
   <%= form_with url: reports_path, method: :get, local: true, class: "form-inline mt-3 d-flex justify-content-center" do %>
-  <%= text_field_tag :query, "", class: "form-control search-text", placeholder: "Address" %>
+  <%= text_field_tag :query, "", class: "search-text form-control", placeholder: "Address" %>
   <%= button_tag type: 'submit' , class: "search-button" do %>
   <i class="fas fa-search" aria-hidden="true"></i>
   <% end %>

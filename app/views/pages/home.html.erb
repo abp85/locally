@@ -10,7 +10,7 @@
   <p>You can also search for existing reports:</p>
   <%#= link_to 'Browse', reports_path, :class => "btn-home-secondary btn-secondary geocode" %>
   <%= form_with url: reports_path, method: :get, local: true, class: "form-inline flex-box" do %>
-  <%= text_field_tag :query, "", class: "form-control search-text", placeholder: "Where are you?" %>
+  <%= text_field_tag :query, "", class: "search-text form-control", placeholder: "Where are you?" %>
   <%= button_tag type: 'submit' , class: "search-button" do %>
   <i class="fas fa-search" aria-hidden="true"></i>
   <% end %>
